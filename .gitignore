@@ -1,0 +1,6 @@
+.DS_Store
+.omc/
+.playwright-mcp/
+screenshot-*.png
+screenshot-*.jpeg
+gen_placeholders.py
