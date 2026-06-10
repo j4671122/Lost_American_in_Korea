@@ -19,24 +19,17 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       {/* City scene */}
       <div className="flex-1 relative overflow-hidden">
         <CityScene cityId={city.id} cityName={city.name} cityColor={city.color} />
-      </div>
-
-      {/* Bottom bar */}
-      <div className="bg-black/70 backdrop-blur-sm shrink-0">
-        <p
-          className="text-xs font-bold tracking-[0.3em] px-8 pt-3 pb-1"
-          style={{ color: city.color }}
-        >
-          LANDMARKS
-        </p>
-        <div className="flex items-center px-8 pb-4 gap-4">
-          <div className="flex gap-6 flex-1">
-            {city.landmarks.map((landmark) => (
-              <LandmarkCard key={landmark.id} landmark={landmark} color={city.color} />
-            ))}
-          </div>
+        {/* City intro — overlaid bottom-right of scene */}
+        <div className="absolute bottom-5 right-5 z-10">
           <CityIntroToggle city={city} />
         </div>
+      </div>
+
+      {/* Landmark strip — full-bleed cinematic photos, no label */}
+      <div className="h-48 flex shrink-0 bg-black">
+        {city.landmarks.map((landmark, i) => (
+          <LandmarkCard key={landmark.id} landmark={landmark} color={city.color} index={i} />
+        ))}
       </div>
     </div>
   )
