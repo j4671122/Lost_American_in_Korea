@@ -416,8 +416,6 @@ export const guides: CityGuide[] = [
       },
     ],
   },
-]
-
   {
     cityId: 'incheon',
     overview:
