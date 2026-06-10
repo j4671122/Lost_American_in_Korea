@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { cities } from '@/lib/cities'
+import { guides } from '@/lib/guides'
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -25,7 +26,7 @@ export default function NavBar() {
       </button>
 
       {/* City tabs */}
-      <div className="flex flex-1">
+      <div className="flex flex-1 min-w-0">
         {cities.map((city) => {
           const isActive = city.id === activeCityId
           const isHovered = hoveredCity === city.id
@@ -99,6 +100,28 @@ export default function NavBar() {
           )
         })}
       </div>
+
+      {/* Guide link */}
+      <Link
+        href="/guide"
+        className="flex flex-col items-center justify-center w-16 shrink-0 border-l border-white/10 gap-1 hover:bg-white/5 transition-colors duration-200"
+      >
+        <span className="text-[9px] tracking-[0.3em] uppercase font-bold text-white/30 hover:text-white/70 transition-colors duration-200">
+          Guide
+        </span>
+        <div className="flex gap-[3px]">
+          {guides.slice(0, 4).map((g) => {
+            const c = cities.find((ci) => ci.id === g.cityId)
+            return (
+              <span
+                key={g.cityId}
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: c?.color ?? '#fff', opacity: 0.5 }}
+              />
+            )
+          })}
+        </div>
+      </Link>
     </nav>
 
     {/* Logo fullscreen modal */}
