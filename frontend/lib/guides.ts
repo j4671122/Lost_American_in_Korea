@@ -798,6 +798,268 @@ export const guides: CityGuide[] = [
       },
     ],
   },
+  {
+    cityId: 'seoul',
+    overview:
+      "Seoul has served as the capital of South Korea since 1394 during the Joseon dynasty. Today it is the center of the nation's culture, economy, and politics — a city where ancient royal palaces stand beside futuristic skyscrapers, and quiet temple gardens exist just minutes from the world's most vibrant nightlife.",
+    landmarks: [
+      {
+        id: 1,
+        name: 'Gyeongbokgung Palace',
+        nameKo: '경복궁',
+        description:
+          "The grand main palace of the Joseon Dynasty built in 1395 — known as the Northern Palace and the site where many Joseon kings were crowned. Burned during the Imjin War (1592–1598) and rebuilt under King Gojong. With the assassination of Empress Myeongseong in 1895, the palace lost its royal function. Today it houses the National Museum of Korea.",
+      },
+      {
+        id: 2,
+        name: 'Changdeokgung Palace',
+        nameKo: '창덕궁',
+        description:
+          "The second royal villa and principal palace for many Joseon kings, a UNESCO World Heritage Site. The legendary rear garden contains a 300-year-old tree, a serene pond, and a classical pavilion that served as a private retreat for the royal family.",
+      },
+      {
+        id: 3,
+        name: 'Sungnyemun Gate',
+        nameKo: '숭례문',
+        description:
+          "Korea's National Treasure No. 1 and the largest castle gate structure in the country, featuring a grand arched stone entry. Burned in 2008, it reopened after five years of meticulous reconstruction in 2013.",
+      },
+      {
+        id: 4,
+        name: 'Seongsu-dong',
+        nameKo: '성수동',
+        description:
+          "Once a busy industrial district, Seongsu-dong was transformed into Seoul's hippest neighborhood — warehouse cafes, pop-up concept stores, and fashion boutiques occupy former factory spaces. A top destination for trendy food, culture, and street style.",
+      },
+      {
+        id: 5,
+        name: 'Itaewon',
+        nameKo: '이태원',
+        description:
+          "Korea's first designated special tourist zone (1997) — a bustling multicultural district with over 2,000 shops, hotels, restaurants, and entertainment venues. The most internationally diverse neighborhood in Seoul.",
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Dak-hanmari',
+        nameKo: '닭한마리',
+        description:
+          'Whole boiled chicken simmered in a clear, rich broth — a traditional Seoul summer food. The steam was said to help relax after a hard day\'s work. Served with optional additions: vegetables, rice cake, and handmade noodles.',
+        restaurants: ['Grandma Jin Ok-hwa\'s Original Chicken Soup 진옥화할매원조닭한마리 · Jongno district'],
+      },
+      {
+        id: 2,
+        name: 'Korean BBQ',
+        nameKo: '고기구이',
+        description:
+          'Seoul-style Korean BBQ — a grill set at the center of the table with an overhead smoke fan, where customers handle the cooking themselves. Priced by time rather than food ordered at many restaurants.',
+        restaurants: ['Yangchon-ri Jangan Branch 양촌리 장안점 · Dongdaemun district'],
+      },
+    ],
+    cafes: [
+      {
+        id: 1,
+        name: '943 King\'s Cross Cafe 943 킹스크로스카페',
+        description: 'Harry Potter-themed cafe in the Mapo district with a magical interior and themed menu. Different zones evoke different Hogwarts settings, including holiday themes.',
+      },
+      {
+        id: 2,
+        name: 'Meerkat Friends 미어캣 프랜즈',
+        description: 'An exotic animal cafe in the Mapo district where guests can watch and interact with arctic foxes, raccoons, and meerkats. A uniquely Seoul experience.',
+      },
+      {
+        id: 3,
+        name: 'Tom N Toms Coffee',
+        description: 'A popular Korean coffee chain offering coffee, tea, pastries, and small flatbreads — a local alternative to international chains.',
+      },
+    ],
+    extra: [
+      {
+        title: 'Neighborhoods',
+        content:
+          "Seoul's districts each have a distinct personality:\n\nDongdaemun (동대문구) — One of Korea's most famous markets for over 40 years, famous for its 24-hour shopping and the futuristic Dongdaemun Design Plaza (DDP) designed by Zaha Hadid.\n\nGangnam (강남구) — The wealthy, modern face of Seoul: high-end shopping, expensive real estate, the most popular clubs and bars in the city. Globally famous from PSY's 'Gangnam Style.'\n\nSeongsu-dong (성수동) — Seoul's answer to Brooklyn: former factories transformed into cool cafes, galleries, and boutiques. The city's most creative and evolving neighborhood.\n\nLoL Park (롤파크) — The home of the LCK, Korea's League of Legends championship league. Features the LCK Arena, Riot Store, PC rooms, and a cafe. A must for esports fans.",
+      },
+    ],
+  },
+  {
+    cityId: 'gyeongju',
+    overview:
+      "Famously known as a 'museum without walls,' Gyeongju served as the capital of the Silla Kingdom for nearly a thousand years. The city is extraordinary for the density of UNESCO World Heritage sites, royal tombs, and ancient temples that exist seamlessly alongside modern daily life — a living archaeological landscape unlike anywhere else in Korea.",
+    landmarks: [
+      {
+        id: 1,
+        name: 'Bulguksa Temple & Seokguram Grotto',
+        nameKo: '불국사 & 석굴암',
+        description:
+          "A UNESCO World Heritage masterpiece of Silla Buddhist architecture, first built between 514–540 and rebuilt in 751. It burned during the Imjin War and suffered damage and thefts for centuries. Now under constant restoration, it houses seven national treasures. Seokguram Grotto (742–765), carved into a mountain cliff, contains a magnificent Buddha statue among the finest Buddhist art in Asia.",
+      },
+      {
+        id: 2,
+        name: 'Cheomseongdae Observatory',
+        nameKo: '첨성대',
+        description:
+          'Built circa 642–647 during the reign of Queen Seondeok — the oldest surviving astronomical observatory in Asia. A stone cylinder approximately 9 meters tall, constructed with exactly 365 stones in 27 layers: the 365 representing days of the year, the 27 representing the 27th ruler who commissioned it.',
+      },
+      {
+        id: 3,
+        name: 'Daereungwon Tomb Complex',
+        nameKo: '대릉원',
+        description:
+          "A park of 23 royal burial mounds containing the remains of Silla kings and queens — enormous grass-covered hillocks that rise from the city like gentle green mountains. A valuable archaeological site that has provided profound insights into how the Silla people lived, traded, and built.",
+      },
+      {
+        id: 4,
+        name: 'Donggung Palace & Wolji Pond',
+        nameKo: '동궁과 월지',
+        description:
+          "The secondary palace complex where the Silla crown prince lived and important royal events were held. The ornamental pond was dug in 674 with landscaped gardens and a 12-peaked artificial mountain. Renamed Anapji ('only geese and ducks fly in') after it fell into ruin, and restored to its original name Wolji Pond after excavations in the 1980s. Spectacular at night.",
+      },
+      {
+        id: 5,
+        name: 'Yangdong Folk Village',
+        nameKo: '양동마을',
+        description:
+          "Korea's largest traditional village — a UNESCO World Heritage Site showcasing Joseon-era culture in its original setting. The entire village is a heritage site containing 160-year-old houses and 500-year-old cottages, many remarkably well preserved. A living community, not a museum.",
+      },
+      {
+        id: 6,
+        name: 'Wolseong Palace Site',
+        nameKo: '경주 월성 (반월성)',
+        description:
+          "The site of the Silla dynasty's main palace-fortress, named for its crescent-moon shape on a hill. Now mostly open grounds, ongoing excavations continue to reveal evidence of grand imperial buildings. Features a historic Seokbinggo (stone ice storage), archery range, and traditional playground.",
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Ssambap Street',
+        nameKo: '쌈밥거리',
+        description:
+          "A dedicated food street developed near the Daereungwon Tomb Complex, famous for ssambap (rice wrapped in leafy greens with various side dishes). Also known for Hwangnam-ppang (sweet red bean pastries, a Gyeongju signature) and jjondeugi (silk worm snacks).",
+      },
+      {
+        id: 2,
+        name: 'Buddhist Temple Food',
+        nameKo: '사찰음식',
+        description:
+          "With Bulguksa and deep Buddhist heritage throughout the city, trying authentic temple food in Gyeongju is a must. Vegetarian and vegan-friendly, the cuisine uses seasonal ingredients prepared according to Buddhist principles — simple, pure, deeply flavorful.",
+        restaurants: ['Yeonhwa Baru 연화 바루 · traditional temple/vegan food, run by two women who cook and serve'],
+      },
+      {
+        id: 3,
+        name: 'Yeongyang Sutbul Galbi',
+        nameKo: '영양숯불갈비',
+        description:
+          "Gyeongju is well-known for its high-quality Hanwoo (Korean beef). Sutbul Galbi — charcoal-grilled beef ribs — at this well-rated restaurant represents the best of Korean barbecue with premium local ingredients.",
+        restaurants: ['Yeongyang Sutbul Galbi 영양숯불갈비'],
+      },
+    ],
+    cafes: [
+      {
+        id: 1,
+        name: 'Bichkkuli 빛꿀이',
+        description: 'A classic Hanok teahouse set in a 100-year-old house with floor seating. Famous for pastel-colored rice cake snacks and traditional Korean teas — the perfect accompaniment to a day of temple visits.',
+      },
+      {
+        id: 2,
+        name: 'Cafe Sol',
+        description: 'A minimalistic Hanok cafe near Daereungwon Ancient Tombs with private garden patios. Three distinct spaces: the main air-conditioned interior, a sheltered addition, and serene private garden patios. Famous for its ice cream.',
+      },
+    ],
+  },
+  {
+    cityId: 'daejeon',
+    overview:
+      "Daejeon is located in the central heart of South Korea, known for its balance of science, nature, and relaxed urban life. Home to Korea's largest concentration of research institutes and universities, it carries the identity of a science city — yet offers peaceful hot springs, forest trails, and a thriving food culture centered on one beloved dish: Kalguksu, earning it the nickname 'City of Kalguksu.'",
+    landmarks: [
+      {
+        id: 1,
+        name: 'Expo Science Park & Hanbit Tower',
+        nameKo: '엑스포과학공원 & 한빛탑',
+        description:
+          "Built to commemorate the 1993 Daejeon World Expo, Hanbit Tower is the defining symbol of Daejeon's science-city identity. Especially beautiful at night when it is illuminated with colorful lights and a futuristic atmosphere.",
+      },
+      {
+        id: 2,
+        name: 'Euneungjeongi Culture Street & Sky Road',
+        nameKo: '으능정이 문화의거리 & 스카이로드',
+        description:
+          "Daejeon's liveliest downtown area, filled with shops, restaurants, and cafes. The Sky Road LED media display lights up the street at night with stunning large-scale digital art — a modern spectacle in the city center.",
+      },
+      {
+        id: 3,
+        name: 'Gyejoksan Red Clay Trail',
+        nameKo: '계족산 황톳길',
+        description:
+          "A unique barefoot nature experience — visitors walk along a 14.5km red clay path through forest. The moist red clay is said to have therapeutic benefits. A beloved local healing ritual especially popular on weekends.",
+        tip: 'Bring a towel and water. Barefoot walking on the red clay is the intended experience.',
+      },
+      {
+        id: 4,
+        name: 'Daejeon O-World',
+        nameKo: '대전 오월드',
+        description:
+          'A family-friendly theme park combining a zoo, amusement rides, and Flower Land (seasonal flower gardens). A fun and accessible attraction for visitors of all ages.',
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Kalguksu',
+        nameKo: '칼국수',
+        description:
+          "Hand-cut wheat flour noodles in a rich anchovy or meat broth — Daejeon is so renowned for this dish it's called the 'City of Kalguksu.' The best versions use freshly made noodles with a generous helping of fresh clams.",
+        restaurants: ['Oh-ssi Kalguksu 오씨칼국수 · most iconic, famous for fresh wild clams (Dongjuk) in the broth. Warning: house kimchi is very spicy'],
+      },
+      {
+        id: 2,
+        name: 'Dubu-duruchigi',
+        nameKo: '두부두루치기',
+        description:
+          "A unique Daejeon specialty — firm tofu simmered in a deeply spicy sauce with chili powder and garlic. The classic local technique: mix Kalguksu noodles into the leftover sauce at the end of the meal.",
+        restaurants: ['Jinrojip 진로집 · operating since the 1960s, local legend in a quiet alley', 'Gwangcheon Sikdang 광천식당 · featured on popular Korean food shows, fiery heat'],
+      },
+      {
+        id: 3,
+        name: 'Sutgol Naengmyeon',
+        nameKo: '숯골냉면',
+        description:
+          "Daejeon's unique cold noodle style — unlike typical versions that use beef broth, this four-generation recipe blends chicken stock with Dongchimi (radish water kimchi) for a uniquely refreshing, slightly sweet, and tangy cold soup. A local favorite in summer.",
+        restaurants: ['Sutgol Wonjo Naengmyeon 숯골원조냉면 · the original, passed down four generations'],
+      },
+      {
+        id: 4,
+        name: 'Gujeok Acorn Jelly Soup',
+        nameKo: '구즉 도토리묵',
+        description:
+          "Originating from Gujeok-dong in Yuseong-gu — shredded acorn jelly (dotori-muk) served in a warm, savory broth topped with kimchi and seaweed flakes. Vegetarian-friendly, mild, earthy, and deeply comforting.",
+        restaurants: ['Gujeok Mukjib 구즉묵집 · certified healthy, vegetarian/vegan-friendly, also try the acorn pancake (Dotori Bindaetteok)'],
+      },
+    ],
+    cafes: [
+      {
+        id: 1,
+        name: 'Sungsimdang Cultural Center 성심당 문화원',
+        description: "One minute from Daejeon's legendary Sungsimdang Bakery — a multi-floor cultural cafe where you can sit and enjoy your purchases. Browse eco-friendly souvenirs and bakery-themed merchandise.",
+      },
+      {
+        id: 2,
+        name: 'Pungnyuga 풍뉴가',
+        description: 'A serene bamboo forest tea house in a revitalized historical alleyway near Daejeon Station. Specializes in creative blended loose-leaf teas and non-coffee beverages — a hidden calm in the city.',
+      },
+      {
+        id: 3,
+        name: 'Oeight 에이트',
+        description: 'A massive award-winning architectural masterpiece with a grand indoor waterfall and outdoor rooftop pool. One of Daejeon\'s premier photography destinations, with a wide selection of fresh pastries daily.',
+      },
+      {
+        id: 4,
+        name: 'Haneulmanqeum 하늘만큼',
+        description: 'A spacious cafe overlooking a complex of beautiful traditional Hanok buildings — high-quality coffee and fruit teas with a peaceful historical landscape.',
+      },
+    ],
+  },
 ]
 
 export function getGuideById(cityId: string): CityGuide | undefined {
