@@ -9,14 +9,20 @@ export default function NavBar() {
   const pathname = usePathname()
   const activeCityId = pathname.split('/').pop() ?? 'seoul'
   const [hoveredCity, setHoveredCity] = useState<string | null>(null)
+  const [showLogoModal, setShowLogoModal] = useState(false)
 
   return (
+    <>
     <nav className="flex items-stretch h-24 bg-black/90 backdrop-blur-sm shrink-0">
       {/* Logo */}
-      <div className="flex items-center justify-center w-20 shrink-0 border-r border-white/10 px-1">
+      <button
+        onClick={() => setShowLogoModal(true)}
+        className="flex items-center justify-center w-28 shrink-0 border-r border-white/10 px-2 hover:bg-white/5 transition-colors duration-200 cursor-pointer"
+        aria-label="Lost American in Korea"
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.jpg" alt="Lost American in Korea" className="w-full h-14 object-contain" />
-      </div>
+        <img src="/logo.jpg" alt="Lost American in Korea" className="w-full h-20 object-contain" />
+      </button>
 
       {/* City tabs */}
       <div className="flex flex-1">
@@ -94,5 +100,42 @@ export default function NavBar() {
         })}
       </div>
     </nav>
+
+    {/* Logo fullscreen modal */}
+    {showLogoModal && (
+      <div
+        className="fixed inset-0 z-50 flex flex-col items-center justify-center cursor-pointer"
+        style={{ backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', backgroundColor: 'rgba(0,0,0,0.75)' }}
+        onClick={() => setShowLogoModal(false)}
+      >
+        {/* Logo image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo.jpg"
+          alt="Lost American in Korea"
+          className="w-64 h-64 object-contain mb-10 select-none"
+          style={{ filter: 'drop-shadow(0 0 40px rgba(255,255,255,0.15))' }}
+        />
+
+        {/* Typography */}
+        <div className="flex flex-col items-center gap-3 select-none">
+          <p className="text-white/30 text-xs tracking-[0.5em] uppercase font-light">Welcome to</p>
+          <h1
+            className="text-white text-7xl font-black tracking-[0.25em] uppercase leading-none"
+            style={{ textShadow: '0 0 60px rgba(255,255,255,0.2)' }}
+          >
+            Lost American
+          </h1>
+          <div className="flex items-center gap-4 w-full">
+            <div className="flex-1 h-px bg-white/20" />
+            <p className="text-white/60 text-2xl font-light tracking-[0.6em] uppercase">in Korea</p>
+            <div className="flex-1 h-px bg-white/20" />
+          </div>
+        </div>
+
+        <p className="absolute bottom-10 text-white/20 text-xs tracking-[0.3em] uppercase">Click anywhere to close</p>
+      </div>
+    )}
+    </>
   )
 }

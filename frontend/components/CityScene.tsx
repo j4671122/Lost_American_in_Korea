@@ -58,17 +58,6 @@ export default function CityScene({ cityId, cityName, cityColor }: Props) {
         />
       </div>
 
-      {/* Person — center */}
-      <div className="absolute inset-0 flex items-end justify-center pb-4 pointer-events-none">
-        <div className="w-48 h-4/5">
-          <OptionalImg
-            src={`/cities/${cityId}/person.png`}
-            alt=""
-            className="w-full h-full object-contain object-bottom"
-          />
-        </div>
-      </div>
-
       {/* City name */}
       <div className="absolute top-6 left-0 right-0 flex justify-center pointer-events-none">
         <h1
