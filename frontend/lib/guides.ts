@@ -418,6 +418,390 @@ export const guides: CityGuide[] = [
   },
 ]
 
+  {
+    cityId: 'incheon',
+    overview:
+      "Incheon is a place where historical modern architecture and future-oriented new cities coexist. As the gateway city for most visitors to Korea — home to Incheon International Airport — it was also the birthplace of Korean modernization: Korea's first Western-style hotel, first public park, first black bean noodles, and the site of General MacArthur's legendary 1950 landing. The ancient kingdom of Michuhol, founded by Prince Biryu of Goguryeo, began here.",
+    landmarks: [
+      {
+        id: 1,
+        name: 'Seonjaedo Mokseom',
+        nameKo: '선재도 목섬',
+        description:
+          "Ranked #1 in 'The Most Beautiful Islands in Korea' by CNN. An uninhabited island where a sea path opens like the Miracle of Moses twice a day during low tide — allowing visitors to walk across to the island on foot.",
+        tip: 'Check tide tables before visiting — the path only opens twice daily.',
+      },
+      {
+        id: 2,
+        name: 'Incheon Chinatown',
+        nameKo: '인천 차이나타운',
+        description:
+          "Korea's only official Chinatown, established in 1883 when the port opened. Famous for colorful gates and the birthplace of Korean-style Jajangmyeon — invented at Gonghwachun restaurant.",
+      },
+      {
+        id: 3,
+        name: 'Incheon Bridge',
+        nameKo: '인천대교',
+        description:
+          'One of the longest sea-crossing bridges in Korea, spanning over the water to Incheon Airport. Famous as a scenic drive course and one of the finest sunset viewing spots in the region.',
+      },
+      {
+        id: 4,
+        name: 'Daecheongdo Nongyeo Beach',
+        nameKo: '대청도 농여 해변',
+        description:
+          'A remote beach on Daecheongdo Island boasting magnificent scenery and unique geological structures featuring natural ripple marks — ancient wave patterns preserved in stone over millions of years.',
+      },
+      {
+        id: 5,
+        name: 'Songdo International City',
+        nameKo: '송도국제도시',
+        description:
+          "Korea's landmark smart city — a futuristic urban district built from scratch on reclaimed land, featuring Songdo Central Park with its 1.8km waterway and eco-friendly architecture.",
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Jajangmyeon',
+        nameKo: '자장면',
+        description:
+          "Incheon is the birthplace of Korean-style Jajangmyeon. The dish was invented at Gonghwachun restaurant in Chinatown, where Chinese immigrants adapted the original Chinese zhajiangmian into the sweeter, thicker Korean version beloved nationwide today.",
+        restaurants: ['Gonghwachun Chinatown Branch No. 1 공화춘 차이나타운 1호점 · original Jajangmyeon'],
+      },
+      {
+        id: 2,
+        name: 'Sinpo Dakgangjeong',
+        nameKo: '신포 닭강정',
+        description:
+          'A specialty of Sinpo International Market — crispy fried chicken glazed in a sweet and spicy sauce. The texture is excellent: crunchy outside, juicy inside, with an addictive balance of sweetness and heat.',
+        restaurants: ['Sinpo International Market 신포국제시장'],
+      },
+      {
+        id: 3,
+        name: 'Multoneo Tang',
+        nameKo: '물텀벙이탕 (뭉텅이탕)',
+        description:
+          "A refreshing and spicy hangover soup traditionally enjoyed by Incheon fishermen. Made with Mulmegi (a local fish), it is a deeply local dish that represents the sea-working heritage of the port city.",
+        restaurants: ['Tongyeong Hansanseom Restaurant 통영 한산섬식당 · Centennial Store, famous for fresh Mulmegitang'],
+      },
+    ],
+    cafes: [
+      { id: 1, name: 'Cafe Maydream 카페 메이드림', description: 'Characterized by a beautiful large tree centerpiece. A landmark cafe in Incheon.' },
+    ],
+    extra: [
+      {
+        title: 'Dialect',
+        content:
+          "Incheon belongs to the Gyeonggi dialect sphere and is today nearly identical to standard Korean. The unique feature is a tendency to attach '~geodeong-yo' to the end of sentences when explaining reasons, and a slightly rising intonation at sentence ends.\n\nThis uniformity has a fascinating cause: when Incheon's port opened in 1883, people flooded in from all over Korea — Chungcheong, Jeolla, Hwanghae — creating intense 'dialect contact' where multiple dialects mixed and smoothed into a common form. Transportation hub, population movement, and centuries of port culture erased regional distinctions.\n\nTraces of the West Coast intonation survive in coastal areas like Ganghwa and Ongjin, where the sea still shapes the rhythm of speech.",
+      },
+    ],
+  },
+  {
+    cityId: 'yeosu',
+    overview:
+      "A romantic city where the blue sea of the South Coast and the colorful lights of the night sea harmonize. With 365 islands, Yeosu offers a new destination every day of the year. The birthplace of the legendary Turtle Ship, Yeosu's waters were protected by Admiral Yi Sun-sin during the Imjin War — and the sea remains the city's soul to this day.",
+    landmarks: [
+      {
+        id: 1,
+        name: 'Yeosu Maritime Cable Car',
+        nameKo: '여수 해상케이블카',
+        description:
+          'A spectacular cable car connecting Jasan Park and Dolsan Park over the open sea, offering a panoramic bird\'s-eye view of Yeosu city, harbor, and the scattered islands of the South Sea.',
+      },
+      {
+        id: 2,
+        name: 'Odongdo Island',
+        nameKo: '오동도',
+        description:
+          'A small island famous for its vast camellia forest — over 3,000 trees bloom in winter. Beautiful walking trails wind through the forest to a white lighthouse at the tip of the island.',
+      },
+      {
+        id: 3,
+        name: 'Yeosu Night Sea & Night Market',
+        nameKo: '여수 밤바다 & 여수 밤시장',
+        description:
+          "Yeosu Night Sea is one of the most iconic night views in Korea — a shimmering harbor where cool ocean air and the glow of city lights meet. So beautiful it has its own famous song. The adjacent Night Market is renowned for grilled shellfish.",
+        tip: 'The song "Yeosu Night Sea" by Busker Busker is worth listening to as you walk the waterfront.',
+      },
+      {
+        id: 4,
+        name: 'Bareun Saenghwal',
+        nameKo: '바른생활',
+        description:
+          'A charming retro-style prop shop and nostalgic stationery store recreating the atmosphere of 1970s and 80s Korea — a beloved photo destination and cultural time capsule.',
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Dolgejang',
+        nameKo: '돌게장',
+        description:
+          "Small stone crabs marinated in soy sauce or spicy paste. Despite their small size, they are packed with rich, dense meat — so flavorful locals call them 'rice thieves' because one crab will have you eating three bowls of rice.",
+        restaurants: ['Ihwa Sikdang 이화식당'],
+      },
+      {
+        id: 2,
+        name: 'Dolsan Gat-kimchi',
+        nameKo: '돌산 갓김치',
+        description:
+          "Made with mustard leaves grown in the sea breeze of Dolsando Island. The maritime environment gives the leaves a uniquely pungent and spicy character found nowhere else — a Yeosu signature.",
+        restaurants: ['Buil Sikdang 부일식당'],
+      },
+      {
+        id: 3,
+        name: 'Seodaehoe-muchim',
+        nameKo: '서대회 무침',
+        description:
+          "Considered the best delicacy of Yeosu — raw Seodae (a flatfish) seasoned with Makgeolli vinegar for a sour, light, clean taste. The rice vinegar marinade gives it a refreshing brightness that sets it apart from other raw fish dishes.",
+        restaurants: ['Buil Sikdang 부일식당'],
+      },
+    ],
+    cafes: [
+      { id: 1, name: 'Odong Pudding Shop 오동 푸딩 가게', description: 'Handmade puddings in charming glass bottles with cute character drawings — milk, cheese, corn, black sesame, and more.' },
+      { id: 2, name: 'Yeongbin Sikdang 영빈식당', description: 'Famous for Grilled Eel and Eel Soup — a Yeosu institution.' },
+    ],
+    extra: [
+      {
+        title: 'Fun Facts',
+        content:
+          "With 365 islands scattered across the South Sea, Yeosu offers a different island destination for every day of the year.\n\nYeosu is the birthplace of the Turtle Ship (거북선) — the world's first ironclad warship, designed by Admiral Yi Sun-sin to repel the Japanese invasion of 1592. The ship's revolutionary armored deck and dragon-head prow made it virtually unstoppable.\n\nThe city's dialect reflects its geography: as a port city with frequent exchange with surrounding islands, the intonation is somewhat stronger and faster than the inland Jeolla dialect, with a unique melodic pitch — the result of linguistic adaptation to communicate clearly in a rough sea environment.",
+      },
+    ],
+  },
+  {
+    cityId: 'gangneung',
+    overview:
+      "A healing city with the majestic Taebaek Mountains at its back and facing the blue East Sea. Gangneung is known throughout Korea as the 'City of Coffee' — where first-generation baristas settled along the beach and built a unique cafe culture unlike anywhere else in the country. Beyond coffee, the city offers pristine beaches, ancient pavilions, and the flavors of Gangwon-do cuisine.",
+    landmarks: [
+      {
+        id: 1,
+        name: 'Gyeongpodae & Gyeongpo Lake',
+        nameKo: '경포대 & 경포호',
+        description:
+          "One of the Eight Scenic Views of Kwandong — a classical Joseon-era pavilion overlooking a serene lake where freshwater and sea meet. The reflection of the sky and mountains on the water creates one of the most tranquil scenes in Korea.",
+      },
+      {
+        id: 2,
+        name: 'Anmok Beach Coffee Street',
+        nameKo: '안목해변 커피거리',
+        description:
+          "The origin of Gangneung's coffee culture — unique cafes line the beachfront, and the tradition of drinking freshly roasted specialty coffee while gazing at the East Sea began here. Since first-generation Korean baristas settled along this strip, coffee quality is exceptionally high.",
+      },
+      {
+        id: 3,
+        name: 'Terarosa',
+        nameKo: '테라로사',
+        description:
+          'A landmark coffee roastery converted from an old factory building. Architecturally striking and consistently cited as one of the top Instagram spots for foreign visitors in Korea. The coffee program is world-class.',
+      },
+      {
+        id: 4,
+        name: 'Haslla Art World',
+        nameKo: '하슬라 아트월즈',
+        description:
+          'A large-scale art theme park set along the dramatic East Sea coastline — combining outdoor sculpture gardens, contemporary art exhibitions, and a hotel with sweeping ocean views.',
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Chodang Sundubu',
+        nameKo: '초당 순두부',
+        description:
+          "Soft tofu made using seawater as a natural coagulant instead of the usual additives — a unique technique developed in Gangneung's Chodang village. The result is a lumpy, custardy texture with a deep, clean savory flavor from the sea minerals.",
+        restaurants: ['Chodang Grandma Sundubu 초당순두부 맛집'],
+      },
+      {
+        id: 2,
+        name: 'Super Sweet Chodang Corn',
+        nameKo: '초당 옥수수',
+        description:
+          "Gangneung's most beloved summer specialty — extremely sweet corn grown in the Chodang area, eaten boiled or grilled. The natural sweetness is so intense it tastes almost like dessert.",
+        restaurants: ['Choding 쵸딩 · hot dessert cafe specializing in Chodang corn puddings'],
+      },
+      {
+        id: 3,
+        name: 'Jangkalguksu',
+        nameKo: '장칼국수',
+        description:
+          'A thick and intensely spicy Gangwon-style knife-cut noodle soup flavored with red pepper paste and soybean paste. A warming, bold dish suited to the mountain climate.',
+      },
+      {
+        id: 4,
+        name: 'Cockle Pizza',
+        nameKo: '꼬막 피자',
+        description:
+          "Gangneung's most unique dish: pizza topped with seasoned cockles — a beloved local invention that perfectly blends Italian form with Korean coastal flavors.",
+        restaurants: ['Sanmar 샌마르 · representative unique pizza restaurant and pub'],
+      },
+    ],
+    cafes: [
+      { id: 1, name: 'Malcharo 말차로', description: 'A matcha specialty Hanok cafe with a cute garden and emotional interior — a classic Gangneung date course.' },
+      { id: 2, name: 'Terarosa 테라로사', description: 'Factory-converted landmark roastery — world-class coffee in a stunning architectural setting.' },
+      { id: 3, name: 'Hongje Mansion 홍제맨션', description: 'Roastery cafe specializing in siphon coffee and hand drip, brewed with charcoal-roasted beans.' },
+    ],
+  },
+  {
+    cityId: 'busan',
+    overview:
+      "Korea's second city and largest port, Busan electrifies with vibrant beaches, rainbow-painted hillside villages, and the freshest seafood in the entire country. A city born of resilience — many of its most beloved neighborhoods were built by refugees during the Korean War — Busan has transformed struggle into culture, and culture into one of Asia's most dynamic coastal cities.",
+    landmarks: [
+      {
+        id: 1,
+        name: 'Haeundae Beach',
+        nameKo: '해운대 해변',
+        description:
+          "Korea's most famous beach — a broad, long sandy shore with millions of summer visitors, surrounded by restaurants, cafes, and luxury hotels. At night, the city lights reflecting on the water create one of Korea's finest urban seascapes.",
+      },
+      {
+        id: 2,
+        name: 'Gwangalli Beach & Gwangan Bridge',
+        nameKo: '광안리 & 광안대교',
+        description:
+          "A lively beach lined with trendy cafes and restaurants, beloved for its calm waves and the iconic Gwangan Bridge — a double-decker suspension span that illuminates in colorful lights at night, creating one of the most photographed night views in all of Korea.",
+      },
+      {
+        id: 3,
+        name: 'Jagalchi Market',
+        nameKo: '자갈치시장',
+        description:
+          "Korea's largest seafood market — a waterfront institution packed with fresh fish and shellfish caught daily by local fishermen. Buy on the lower floors and have it cooked immediately on the upper floors. An unmissable immersion in Busan's true local culture.",
+      },
+      {
+        id: 4,
+        name: 'Gamcheon Culture Village',
+        nameKo: '감천문화마을',
+        description:
+          "Often called the 'Santorini of Korea' — bright pastel-colored houses stacked along steep hillside streets. Originally built by refugees during the Korean War in the 1950s, local artists and residents transformed it into a breathtaking open-air art village filled with murals, sculptures, and small galleries.",
+      },
+      {
+        id: 5,
+        name: 'Taejongdae',
+        nameKo: '태종대',
+        description:
+          "A protected natural park famous for dramatic rocky cliffs and breathtaking ocean views. A 4km scenic road circles the entire park past pine forests, an observation deck, a lighthouse, and the small Taejonsa temple. Named after King Taejong Muyeol of Silla who loved to practice archery here.",
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Milmyeon',
+        nameKo: '밀면',
+        description:
+          "A cold noodle dish unique to Busan, born from necessity. During the Korean War, refugees who fled to Busan couldn't find buckwheat for traditional cold noodles — so they used wheat flour instead. The result was Milmyeon: chewy wheat noodles in a cold savory broth, topped with vegetables, egg, and spicy sauce. A dish of resilience that became a local icon.",
+        restaurants: ['Daeying Myeonok 대영면옥'],
+      },
+      {
+        id: 2,
+        name: 'Dwaeji Gukbap',
+        nameKo: '돼지국밥',
+        description:
+          "Busan's soul food — a rich, milky pork bone broth soup served with tender pork slices and a bowl of rice. Like Jeonju's Kongnamul Gukbap, this is the dish that Busan residents feel is most authentically theirs. Warm, hearty, and deeply satisfying at any hour.",
+        restaurants: ['Bukwang Dwaeji Gukbap 부광돼지국밥'],
+      },
+      {
+        id: 3,
+        name: 'Hoe & Fresh Seafood',
+        nameKo: '회 & 해산물',
+        description:
+          "In Busan, raw fish (Hoe) is not a luxury restaurant dish — it is a true local food that families enjoy at home. Fresh fish sliced thin and eaten with spicy gochujang or soy sauce with wasabi. With Jagalchi Market supplying the freshest catch daily, the quality is unparalleled.",
+        restaurants: ['Ppalkkan Deungdae Yeongdo 빨간등대 영도점'],
+      },
+    ],
+    cafes: [
+      { id: 1, name: 'Twae et Moa 트와엣모아', description: 'A beloved Busan cafe with a distinctive atmosphere.' },
+      { id: 2, name: 'Nuckout 넉아웃', description: 'A popular local Busan cafe.' },
+    ],
+    extra: [
+      {
+        title: 'Dialect',
+        content:
+          "The Busan dialect (부산 사투리) is one of the most distinctive and recognizable in Korea — a strong, rhythmic accent that sounds dramatically different from standard Seoul Korean, with its own special vocabulary and expressions that even other Koreans sometimes struggle to understand.\n\nThe most famous example: '가가 가가?' (Ga ga ga ga?) — which means 'Is that person that person?' Four identical syllables, one complete sentence.\n\nThe dialect belongs to the broader Gyeongsang-do Saturi family, characterized by a bold, confident tone that reflects the city's port culture and direct personality.",
+      },
+    ],
+  },
+  {
+    cityId: 'daegu',
+    overview:
+      "A city where history and modernity coexist beautifully — red-brick colonial architecture meets a bustling, energetic downtown. As a renowned 'City of Gastronomy,' Daegu's original dishes like Makchang and Nabjak-mandu deliver a culinary experience found nowhere else. The locals' distinctive, rhythmic dialect and warm hospitality add an authentic layer of charm to every visit.",
+    landmarks: [
+      {
+        id: 1,
+        name: '83 Tower & E-World',
+        nameKo: '83타워 & 이월드',
+        description:
+          "Daegu's iconic 202-meter landmark tower offering panoramic views of the entire Daegu basin, paired with E-World — an exciting theme park at its base. A classic Daegu date destination.",
+      },
+      {
+        id: 2,
+        name: 'Seomun Market',
+        nameKo: '서문시장',
+        description:
+          "One of the three largest traditional markets from the Joseon Dynasty, famous for its vibrant night market and diverse street food. A labyrinthine bazaar of textiles, produce, and Daegu's best late-night snacks.",
+      },
+      {
+        id: 3,
+        name: 'Modern Cultural Alley',
+        nameKo: '근대문화골목',
+        description:
+          "A peaceful walking street through Korea's modern history — featuring beautifully preserved historic cathedrals, colonial-era architecture, and a curated cultural trail through Daegu's transformation from Joseon to the present.",
+      },
+      {
+        id: 4,
+        name: 'Kim Kwang-seok Memorial Road',
+        nameKo: '김광석 다시그리기길',
+        description:
+          "A sentimental street dedicated to Daegu's beloved legendary singer Kim Kwang-seok, lined with artistic murals depicting his life and music. His songs play softly from speakers along the alley — a deeply moving cultural pilgrimage.",
+      },
+    ],
+    food: [
+      {
+        id: 1,
+        name: 'Makchang',
+        nameKo: '막창',
+        description:
+          "Grilled pork or beef intestines — Daegu's most iconic local soul food. Chewy, savory, and deeply flavorful when grilled over charcoal. Considered a 'must-eat' by locals and a rite of passage for any visitor. Pairs perfectly with soju.",
+        restaurants: ['Yeonmakchang Daegu Bonjum 연막창대구본점', 'Geollibeo Makchang 걸리버막창'],
+      },
+      {
+        id: 2,
+        name: 'Ttaro-gukbab',
+        nameKo: '따로국밥',
+        description:
+          "A spicy beef soup with coagulated blood, served with the rice in a separate bowl — a style that originated in Daegu. 'Ttaro' means 'separate' — the distinct serving style is the dish's signature.",
+      },
+      {
+        id: 3,
+        name: 'Nabjak-mandu',
+        nameKo: '납작만두',
+        description:
+          "Thin, flat pan-fried dumplings filled with glass noodles — a Daegu specialty that pairs perfectly with spicy Tteokbokki. The flat shape means maximum crispiness on both sides.",
+        restaurants: ['Mi-seongdang 미성당'],
+      },
+      {
+        id: 4,
+        name: 'Mungtigi',
+        nameKo: '뭉티기',
+        description:
+          "Fresh, thinly sliced raw Korean beef served with a signature garlic and chili oil dipping sauce. A more rustic, bold version of Korean raw beef — distinctly Daegu in character.",
+        restaurants: ['Deokil Saenggogi 덕일생고기'],
+      },
+    ],
+    cafes: [
+      { id: 1, name: 'Ob-de Pumkins 오브드레 드 펌킨스', description: 'A popular cafe near Apsan (앞산) — great views and atmosphere.' },
+    ],
+    extra: [
+      {
+        title: 'Dialect',
+        content:
+          "Daegu speaks Gyeongsang-do Saturi (경상도 사투리) — a strong, rhythmic accent with a bold musicality that sounds very different from standard Korean.\n\nKey features:\n\n'~haet-na?' or '~haet-je?' — the question endings locals use instead of standard Korean. They add a melodic, rhythmic touch to conversation.\n\n'Dandi-haera! (단디 해라!)' — the most famous Daegu phrase, meaning 'Do it properly!' or 'Take care!' You'll hear it from grandparents, shopkeepers, and friends alike.\n\n'Muttuk-tuk (무뚝뚝)' — Daegu people are famously blunt on the outside but deeply warm-hearted inside. They express affection through actions and generous food rather than words.\n\nQuick tip: Say 'Mat-iss-ne!' (맛있네!) with a strong upward pitch on the second syllable — locals will love you for it.",
+      },
+    ],
+  },
+]
+
 export function getGuideById(cityId: string): CityGuide | undefined {
   return guides.find((g) => g.cityId === cityId)
 }
