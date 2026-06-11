@@ -30,7 +30,7 @@ export default function CityScene({ cityId, cityName, cityNameKo, cityColor }: P
     <>
       {/* 배경 사진 */}
       <div
-        className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url('${getCityBackgroundImage(cityId)}')`,
           backgroundColor: cityColor + '22',

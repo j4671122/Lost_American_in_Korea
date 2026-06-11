@@ -10,28 +10,29 @@ export default function NavBar() {
   const pathname = usePathname()
   const activeCityId = pathname.split('/').pop() ?? 'seoul'
   const [hoveredCity, setHoveredCity] = useState<string | null>(null)
+  const [hoveredAction, setHoveredAction] = useState<'korea' | 'guide' | null>(null)
   const [showLogoModal, setShowLogoModal] = useState(false)
 
   return (
     <>
-    <nav className="flex items-stretch h-24 bg-black/90 backdrop-blur-sm shrink-0">
+    <nav className="nav-scrollbar flex items-stretch h-16 md:h-24 bg-black/92 backdrop-blur-md shrink-0 border-b border-white/10 overflow-x-auto overflow-y-hidden md:overflow-visible">
 
       {/* ── 로고 ── */}
       <button
         onClick={() => setShowLogoModal(true)}
-        className="flex flex-col items-center justify-center w-36 shrink-0 border-r border-white/10 px-3 py-2 hover:bg-white/5 transition-colors duration-200 cursor-pointer gap-1.5"
+        className="flex flex-col items-center justify-center w-20 md:w-36 shrink-0 border-r border-white/10 px-2 md:px-3 py-2 hover:bg-white/5 transition-colors duration-200 cursor-pointer gap-1 md:gap-1.5"
         aria-label="Lost American in Korea"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.jpg" alt="Lost American in Korea" className="w-14 h-14 object-contain" />
-        <div className="text-center leading-none space-y-0.5">
+        <img src="/logo.jpg" alt="Lost American in Korea" className="w-9 h-9 md:w-14 md:h-14 object-contain" />
+        <div className="hidden md:block text-center leading-none space-y-0.5">
           <p className="text-white text-[8px] font-black tracking-[0.28em] uppercase">Lost American</p>
           <p className="text-white/35 text-[7px] tracking-[0.22em] uppercase">in Korea</p>
         </div>
       </button>
 
       {/* ── 도시 탭 ── */}
-      <div className="flex flex-1 min-w-0">
+      <div className="flex flex-1 min-w-max md:min-w-0">
         {cities.map((city) => {
           const isActive = city.id === activeCityId
           const isHovered = hoveredCity === city.id
@@ -40,58 +41,59 @@ export default function NavBar() {
             <Link
               key={city.id}
               href={`/cities/${city.id}`}
-              className="flex-1 flex flex-col items-center border-r border-white/10 last:border-r-0 relative overflow-hidden"
-              style={{ backgroundColor: isActive ? city.color + '22' : 'transparent' }}
+              className="w-[76px] md:w-auto md:flex-1 flex flex-col items-center border-r border-white/10 last:border-r-0 relative overflow-hidden transition-colors duration-200"
+              style={{ backgroundColor: isActive ? 'rgba(255,255,255,0.075)' : 'transparent' }}
               onMouseEnter={() => setHoveredCity(city.id)}
               onMouseLeave={() => setHoveredCity(null)}
             >
               {/* 건물 이미지 */}
-              <div className="w-full h-[52px] relative overflow-hidden">
-                <div
-                  className="absolute inset-0"
-                  style={{ background: `linear-gradient(to top, ${city.color}33, ${city.color}11)` }}
-                />
+              <div className="hidden md:block w-full h-[52px] relative overflow-hidden">
                 <div
                   className="absolute inset-0"
                   style={{
-                    transform: `scaleY(-1) scale(${isHovered || isActive ? 1.15 : 1})`,
-                    transformOrigin: 'center bottom',
-                    filter: isHovered || isActive
-                      ? `drop-shadow(0 0 6px ${city.color}) brightness(1.25)`
-                      : 'none',
-                    transition: 'transform 0.25s ease, filter 0.25s ease',
+                    background: isHovered
+                      ? `linear-gradient(to top, ${city.color}33, ${city.color}11)`
+                      : 'linear-gradient(to top, rgba(255,255,255,0.07), rgba(255,255,255,0.015))',
+                    transition: 'background 0.25s ease',
                   }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`/cities/${city.id}/nav-building.png`}
-                    alt=""
-                    className="w-full h-full object-cover object-top"
-                    style={{ opacity: 0, transition: 'opacity 0.3s' }}
-                    onLoad={(e) => { ;(e.target as HTMLImageElement).style.opacity = '1' }}
-                    onError={(e) => { ;(e.target as HTMLImageElement).style.display = 'none' }}
-                  />
-                </div>
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/cities/${city.id}/background.jpg`}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{
+                    transform: `scale(${isHovered ? 1.1 : 1})`,
+                    filter: isHovered ? 'brightness(1.15)' : 'grayscale(0.4) brightness(0.55)',
+                    transition: 'transform 0.25s ease, filter 0.25s ease',
+                    opacity: 0,
+                  }}
+                  onLoad={(e) => { ;(e.target as HTMLImageElement).style.opacity = '1' }}
+                  onError={(e) => { ;(e.target as HTMLImageElement).style.display = 'none' }}
+                />
               </div>
 
               {/* 도시명 (영어 + 한국어) */}
               <div
-                className="h-[44px] flex flex-col items-center justify-center w-full px-1 transition-colors duration-200"
-                style={{ backgroundColor: isActive ? city.color : 'transparent' }}
+                className="h-16 md:h-[44px] flex flex-col items-center justify-center w-full px-2 transition-colors duration-200"
+                style={{ backgroundColor: isHovered ? city.color : 'transparent' }}
               >
                 <span
-                  className="text-[10px] font-bold tracking-wide leading-none text-center transition-colors duration-200"
-                  style={{ color: isActive ? '#ffffff' : isHovered ? city.color : 'rgba(255,255,255,0.50)' }}
+                  className="text-[10px] md:text-[10px] font-bold tracking-wide leading-none text-center transition-colors duration-200"
+                  style={{ color: isHovered || isActive ? '#ffffff' : 'rgba(255,255,255,0.46)' }}
                 >
                   {city.name}
                 </span>
                 <span
-                  className="text-[9px] leading-none mt-0.5 transition-colors duration-200"
-                  style={{ color: isActive ? 'rgba(0,0,0,0.75)' : 'rgba(255,255,255,0.22)' }}
+                  className="text-[9px] leading-none mt-1 md:mt-0.5 transition-colors duration-200"
+                  style={{ color: isHovered ? 'rgba(0,0,0,0.72)' : isActive ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.55)' }}
                 >
                   {city.nameKo}
                 </span>
               </div>
+              {isActive && (
+                <span className="absolute bottom-0 left-3 right-3 h-px bg-white/70 md:top-0 md:bottom-auto" />
+              )}
             </Link>
           )
         })}
@@ -100,14 +102,20 @@ export default function NavBar() {
       {/* ── 한국 역사 링크 ── */}
       <Link
         href="/korea"
-        className="flex flex-col items-center justify-center w-16 shrink-0 border-l border-white/10 gap-1.5 hover:bg-white/5 transition-colors duration-200"
+        className="flex flex-col items-center justify-center w-16 md:w-16 shrink-0 border-l border-white/10 gap-1.5 hover:bg-white/5 transition-colors duration-200"
+        onMouseEnter={() => setHoveredAction('korea')}
+        onMouseLeave={() => setHoveredAction(null)}
       >
-        <span className="text-[8px] tracking-[0.25em] font-bold text-white/40 hover:text-white/70 transition-colors duration-200 uppercase">
+        <span className="text-[8px] tracking-[0.25em] font-bold text-white/40 transition-colors duration-200 uppercase">
           Korea
         </span>
         <div className="flex gap-[3px]">
           {['#C62828', '#F9A825', '#1B5E20', '#1A237E'].map((c, i) => (
-            <span key={i} className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: c, opacity: 0.6 }} />
+            <span
+              key={i}
+              className="w-1.5 h-1.5 rounded-full transition-colors duration-200"
+              style={{ backgroundColor: hoveredAction === 'korea' ? c : 'rgba(255,255,255,0.24)' }}
+            />
           ))}
         </div>
       </Link>
@@ -115,9 +123,11 @@ export default function NavBar() {
       {/* ── 여행가이드 링크 ── */}
       <Link
         href="/guide"
-        className="flex flex-col items-center justify-center w-16 shrink-0 border-l border-white/10 gap-1.5 hover:bg-white/5 transition-colors duration-200"
+        className="flex flex-col items-center justify-center w-16 md:w-16 shrink-0 border-l border-white/10 gap-1.5 hover:bg-white/5 transition-colors duration-200"
+        onMouseEnter={() => setHoveredAction('guide')}
+        onMouseLeave={() => setHoveredAction(null)}
       >
-        <span className="text-[8px] tracking-[0.25em] font-bold text-white/40 hover:text-white/70 transition-colors duration-200 uppercase">
+        <span className="text-[8px] tracking-[0.25em] font-bold text-white/40 transition-colors duration-200 uppercase">
           Guide
         </span>
         <div className="flex gap-[3px]">
@@ -127,7 +137,7 @@ export default function NavBar() {
               <span
                 key={g.cityId}
                 className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: c?.color ?? '#fff', opacity: 0.5 }}
+                style={{ backgroundColor: hoveredAction === 'guide' ? c?.color ?? '#fff' : 'rgba(255,255,255,0.24)' }}
               />
             )
           })}
