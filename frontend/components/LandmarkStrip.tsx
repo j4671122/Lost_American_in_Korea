@@ -43,7 +43,7 @@ export default function LandmarkStrip({ landmarks, color }: Props) {
         </button>
       </div>
 
-      {/* Frosted glass panel */}
+      {/* Frosted glass panel — 창호(窓戶) 격자 패턴 배경 */}
       <div
         style={{
           height: open ? '260px' : '0px',
@@ -53,6 +53,12 @@ export default function LandmarkStrip({ landmarks, color }: Props) {
           backdropFilter: 'blur(28px)',
           WebkitBackdropFilter: 'blur(28px)',
           borderTop: `1px solid ${open ? color + '28' : 'transparent'}`,
+          /* 창호 격자 문양 — 전통 한옥 창문에서 영감 */
+          backgroundImage: [
+            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
+            'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          ].join(', '),
+          backgroundSize: '14px 14px',
         }}
       >
         <div className="flex h-full">
