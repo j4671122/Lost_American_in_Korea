@@ -29,8 +29,8 @@ export default function CityGuideContent({ city, guide }: Props) {
         <img
           src={getCityBackgroundImage(city.id)}
           alt={city.name}
-          className="absolute inset-0 w-full h-full object-contain"
-          style={{ backgroundColor: city.color + '18' }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ transform: 'scale(1.05)', transformOrigin: 'center' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black" />
         <div

@@ -20,7 +20,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       <CityScene cityId={city.id} cityName={city.name} cityNameKo={city.nameKo} cityColor={city.color} />
 
       {/* City intro — top right */}
-      <div className="absolute top-5 right-5 z-20">
+      <div className="absolute top-28 right-4 z-20 sm:top-5 sm:right-5">
         <CityIntroToggle city={city} />
       </div>
 

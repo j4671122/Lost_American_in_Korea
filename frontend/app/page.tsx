@@ -247,7 +247,7 @@ export default function Home() {
                 <img
                   src={getCityBackgroundImage(city.id)}
                   alt={city.name}
-                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{ opacity: 0, transition: 'opacity 0.5s ease, transform 0.7s ease' }}
                   onLoad={e => { (e.target as HTMLImageElement).style.opacity = '1' }}
                   onError={e => { (e.target as HTMLImageElement).style.display = 'none' }}
