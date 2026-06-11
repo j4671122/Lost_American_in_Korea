@@ -12,9 +12,9 @@ export default function CityIntroToggle({ city }: Props) {
 
   return (
     <div className="relative flex flex-col items-end shrink-0">
-      {/* 슬라이드업 패널 */}
+      {/* 슬라이드다운 패널 */}
       <div
-        className="absolute bottom-full right-0 mb-2 w-72 overflow-hidden transition-all duration-300 ease-in-out rounded-lg shadow-xl"
+        className="absolute top-full right-0 mt-2 w-72 overflow-hidden transition-all duration-300 ease-in-out rounded-lg shadow-xl"
         style={{ maxHeight: open ? '200px' : '0px', opacity: open ? 1 : 0 }}
       >
         <div

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { cities, getCityById } from '@/lib/cities'
 import CityScene from '@/components/CityScene'
-import LandmarkCard from '@/components/LandmarkCard'
+import LandmarkStrip from '@/components/LandmarkStrip'
 import CityIntroToggle from '@/components/CityIntroToggle'
 
 export function generateStaticParams() {
@@ -15,22 +15,17 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   if (!city) notFound()
 
   return (
-    <div className="flex flex-col h-full">
-      {/* City scene */}
-      <div className="flex-1 relative overflow-hidden">
-        <CityScene cityId={city.id} cityName={city.name} cityNameKo={city.nameKo} cityColor={city.color} />
-        {/* City intro — overlaid bottom-right of scene */}
-        <div className="absolute bottom-5 right-5 z-10">
-          <CityIntroToggle city={city} />
-        </div>
+    <div className="h-full relative overflow-hidden">
+      {/* City scene — fills full height */}
+      <CityScene cityId={city.id} cityName={city.name} cityNameKo={city.nameKo} cityColor={city.color} />
+
+      {/* City intro — top right */}
+      <div className="absolute top-5 right-5 z-20">
+        <CityIntroToggle city={city} />
       </div>
 
-      {/* Landmark strip — full-bleed cinematic photos, no label */}
-      <div className="h-48 flex shrink-0 bg-black">
-        {city.landmarks.map((landmark, i) => (
-          <LandmarkCard key={landmark.id} landmark={landmark} color={city.color} index={i} />
-        ))}
-      </div>
+      {/* Landmark strip — frosted glass overlay at bottom */}
+      <LandmarkStrip landmarks={city.landmarks} color={city.color} />
     </div>
   )
 }
