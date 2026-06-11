@@ -11,6 +11,11 @@ type Props = {
 
 export default function LandmarkStrip({ landmarks, color }: Props) {
   const [open, setOpen] = useState(true)
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
+
+  const panelHeight = open
+    ? (hoveredIdx !== null ? '360px' : '210px')
+    : '0px'
 
   return (
     <div className="absolute bottom-0 left-0 right-0 z-10">
@@ -31,29 +36,24 @@ export default function LandmarkStrip({ landmarks, color }: Props) {
           }}
         >
           <span>Landmarks</span>
-          <span
-            style={{
-              display: 'inline-block',
-              transform: open ? 'rotate(0deg)' : 'rotate(180deg)',
-              transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)',
-            }}
-          >
-            ▼
-          </span>
+          <span style={{
+            display: 'inline-block',
+            transform: open ? 'rotate(0deg)' : 'rotate(180deg)',
+            transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)',
+          }}>▼</span>
         </button>
       </div>
 
-      {/* Frosted glass panel — 창호(窓戶) 격자 패턴 배경 */}
+      {/* Frosted glass panel */}
       <div
         style={{
-          height: open ? '210px' : '0px',
+          height: panelHeight,
           overflow: 'hidden',
           transition: 'height 0.4s cubic-bezier(0.4,0,0.2,1)',
           backgroundColor: 'rgba(0,0,0,0.52)',
           backdropFilter: 'blur(28px)',
           WebkitBackdropFilter: 'blur(28px)',
           borderTop: `1px solid ${open ? color + '28' : 'transparent'}`,
-          /* 창호 격자 문양 — 전통 한옥 창문에서 영감 */
           backgroundImage: [
             'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
             'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px)',
@@ -63,7 +63,15 @@ export default function LandmarkStrip({ landmarks, color }: Props) {
       >
         <div className="flex h-full">
           {landmarks.map((landmark, i) => (
-            <LandmarkCard key={landmark.id} landmark={landmark} color={color} index={i} />
+            <LandmarkCard
+              key={landmark.id}
+              landmark={landmark}
+              color={color}
+              index={i}
+              isExpanded={hoveredIdx === i}
+              onHover={() => setHoveredIdx(i)}
+              onLeave={() => setHoveredIdx(null)}
+            />
           ))}
         </div>
       </div>
