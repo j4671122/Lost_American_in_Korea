@@ -35,59 +35,88 @@ export default function NavBar() {
         {cities.map((city) => {
           const isActive = city.id === activeCityId
           const isHovered = hoveredCity === city.id
+          const isDokdo = city.id === 'dokdo'
 
           return (
             <Link
               key={city.id}
               href={`/cities/${city.id}`}
-              className="flex-1 flex flex-col items-center border-r border-white/10 last:border-r-0 relative overflow-hidden"
-              style={{ backgroundColor: isActive ? city.color + '22' : 'transparent' }}
+              className="flex-1 flex flex-col items-center border-r border-white/8 last:border-r-0 relative overflow-hidden"
+              style={{ backgroundColor: isActive ? city.color + '18' : 'transparent' }}
               onMouseEnter={() => setHoveredCity(city.id)}
               onMouseLeave={() => setHoveredCity(null)}
             >
-              {/* 건물 이미지 */}
+              {/* Active city top line */}
+              {isActive && (
+                <div className="absolute top-0 left-0 right-0 h-[2px] z-10"
+                  style={{ backgroundColor: city.color, boxShadow: `0 0 8px ${city.color}88` }} />
+              )}
+
+              {/* Image area — landmark-1.png rotated 180°, overflows sides */}
               <div className="w-full h-[52px] relative overflow-hidden">
-                <div
-                  className="absolute inset-0"
-                  style={{ background: `linear-gradient(to top, ${city.color}33, ${city.color}11)` }}
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    transform: `scaleY(-1) scale(${isHovered || isActive ? 1.15 : 1})`,
-                    transformOrigin: 'center bottom',
-                    filter: isHovered || isActive
-                      ? `drop-shadow(0 0 6px ${city.color}) brightness(1.25)`
-                      : 'none',
-                    transition: 'transform 0.25s ease, filter 0.25s ease',
-                  }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`/cities/${city.id}/nav-building.png`}
-                    alt=""
-                    className="w-full h-full object-cover object-top"
-                    style={{ opacity: 0, transition: 'opacity 0.3s' }}
-                    onLoad={(e) => { ;(e.target as HTMLImageElement).style.opacity = '1' }}
-                    onError={(e) => { ;(e.target as HTMLImageElement).style.display = 'none' }}
-                  />
-                </div>
+                {!isDokdo ? (
+                  <div className="absolute" style={{ left: '-14%', right: '-14%', top: 0, bottom: 0 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/cities/${city.id}/landmarks/landmark-1.png`}
+                      alt=""
+                      className="w-full h-full"
+                      style={{
+                        objectFit: 'contain',
+                        objectPosition: 'center bottom',
+                        transform: `rotate(180deg) scale(${isHovered || isActive ? 1.12 : 1})`,
+                        transformOrigin: 'center',
+                        transition: 'transform 0.3s ease, filter 0.25s ease, opacity 0.3s',
+                        opacity: 0,
+                        filter: isActive
+                          ? `drop-shadow(0 0 8px ${city.color}bb) brightness(1.35)`
+                          : isHovered
+                          ? `drop-shadow(0 0 5px ${city.color}77) brightness(1.1)`
+                          : 'brightness(0.5) saturate(0.7)',
+                      }}
+                      onLoad={e => { ;(e.target as HTMLImageElement).style.opacity = '1' }}
+                      onError={e => { ;(e.target as HTMLImageElement).style.display = 'none' }}
+                    />
+                  </div>
+                ) : (
+                  /* Dokdo: 태극 색상 바 */
+                  <div className="absolute inset-0 flex items-center justify-center gap-0.5">
+                    {['#C62828', '#1A237E', '#C62828'].map((c, i) => (
+                      <div key={i} className="w-1 rounded-full transition-all duration-300"
+                        style={{
+                          backgroundColor: c,
+                          height: isActive || isHovered ? '32px' : '20px',
+                          opacity: isActive || isHovered ? 0.9 : 0.35,
+                        }} />
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {/* 도시명 (영어 + 한국어) */}
+              {/* City name — hidden by default, scales in on hover */}
               <div
-                className="h-[44px] flex flex-col items-center justify-center w-full px-1 transition-colors duration-200"
+                className="h-[44px] flex flex-col items-center justify-center w-full px-1"
                 style={{ backgroundColor: isActive ? city.color : 'transparent' }}
               >
                 <span
-                  className="text-[10px] font-bold tracking-wide leading-none text-center transition-colors duration-200"
-                  style={{ color: isActive ? '#ffffff' : isHovered ? city.color : 'rgba(255,255,255,0.50)' }}
+                  className="text-[10px] font-bold tracking-wide leading-none text-center block"
+                  style={{
+                    color: isActive ? '#ffffff' : city.color,
+                    opacity: isActive || isHovered ? 1 : 0,
+                    transform: isActive ? 'none' : isHovered ? 'translateY(0) scale(1)' : 'translateY(5px) scale(0.82)',
+                    transition: 'opacity 0.22s ease, transform 0.22s ease',
+                  }}
                 >
                   {city.name}
                 </span>
                 <span
-                  className="text-[9px] leading-none mt-0.5 transition-colors duration-200"
-                  style={{ color: isActive ? 'rgba(0,0,0,0.75)' : 'rgba(255,255,255,0.22)' }}
+                  className="text-[9px] leading-none mt-0.5 block"
+                  style={{
+                    color: isActive ? 'rgba(0,0,0,0.72)' : 'rgba(255,255,255,0.75)',
+                    opacity: isActive || isHovered ? 1 : 0,
+                    transform: isActive ? 'none' : isHovered ? 'translateY(0) scale(1)' : 'translateY(5px) scale(0.82)',
+                    transition: 'opacity 0.22s ease 0.04s, transform 0.22s ease 0.04s',
+                  }}
                 >
                   {city.nameKo}
                 </span>
@@ -142,7 +171,6 @@ export default function NavBar() {
         style={{ backdropFilter: 'blur(28px)', WebkitBackdropFilter: 'blur(28px)', backgroundColor: 'rgba(0,0,0,0.80)' }}
         onClick={() => setShowLogoModal(false)}
       >
-        {/* 로고 이미지 */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logo.jpg"
@@ -150,8 +178,6 @@ export default function NavBar() {
           className="w-56 h-56 object-contain mb-10 select-none"
           style={{ filter: 'drop-shadow(0 0 50px rgba(255,255,255,0.18))' }}
         />
-
-        {/* 타이포그래피 */}
         <div className="flex flex-col items-center gap-4 select-none">
           <p className="text-white/25 text-[10px] tracking-[0.6em] uppercase font-light">Welcome to</p>
           <h1
@@ -168,7 +194,6 @@ export default function NavBar() {
             <div className="flex-1 h-px bg-white/15" />
           </div>
         </div>
-
         <p className="absolute bottom-10 text-white/18 text-[10px] tracking-[0.3em] uppercase">
           Click anywhere to close
         </p>

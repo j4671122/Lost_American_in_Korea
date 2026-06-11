@@ -121,20 +121,46 @@ export default function CityGuideContent({ city, guide }: Props) {
             {guide.landmarks.map((lm, i) => (
               <div
                 key={lm.id}
-                className="flex gap-7 pl-5 border-l-2"
-                style={{
-                  borderColor: city.color + '55',
-                  animation: `fadeUp 0.45s ease ${i * 65}ms both`,
-                }}
+                className="flex gap-6"
+                style={{ animation: `fadeUp 0.45s ease ${i * 65}ms both` }}
               >
-                <span
-                  className="text-[28px] font-black shrink-0 leading-none mt-1"
-                  style={{ color: city.color + '44' }}
+                {/* Landmark photo */}
+                <div
+                  className="shrink-0 rounded-xl overflow-hidden border relative"
+                  style={{
+                    width: '96px',
+                    height: '96px',
+                    borderColor: city.color + '33',
+                    backgroundColor: city.color + '0a',
+                  }}
                 >
-                  {String(lm.id).padStart(2, '0')}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-baseline gap-3 flex-wrap mb-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/cities/${city.id}/landmarks/landmark-${lm.id}.png`}
+                    alt={lm.name}
+                    className="w-full h-full"
+                    style={{
+                      objectFit: 'contain',
+                      filter: `drop-shadow(0 2px 8px ${city.color}55)`,
+                      opacity: 0,
+                      transition: 'opacity 0.4s ease',
+                    }}
+                    onLoad={e => { (e.target as HTMLImageElement).style.opacity = '1' }}
+                    onError={e => { (e.target as HTMLImageElement).style.display = 'none' }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px]"
+                    style={{ backgroundColor: city.color + '66' }} />
+                </div>
+
+                {/* Landmark text */}
+                <div className="flex-1 min-w-0 pl-5 border-l-2" style={{ borderColor: city.color + '44' }}>
+                  <span
+                    className="text-[11px] font-black leading-none"
+                    style={{ color: city.color + '66' }}
+                  >
+                    {String(lm.id).padStart(2, '0')}
+                  </span>
+                  <div className="flex items-baseline gap-3 flex-wrap mt-1 mb-2">
                     <h3 className="text-white font-bold text-xl leading-tight">{lm.name}</h3>
                     <span className="text-white/30 text-sm">{lm.nameKo}</span>
                   </div>
