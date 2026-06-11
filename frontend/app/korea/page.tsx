@@ -1,3 +1,11 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import Reveal from '@/components/Reveal'
+
+const DANCHEONG = ['#C62828', '#F9A825', '#1B5E20', '#1A237E', '#C62828']
+
 const TIMELINE = [
   {
     year: '1443 — 1446',
@@ -70,178 +78,202 @@ const CONCEPTS = [
     word: '눈치',
     romanized: 'Nunchi',
     meaning: 'Reading the room',
-    detail:
-      "The subtle ability to gauge the mood and feelings of others without being told. Considered an essential social skill — someone with good 눈치 understands what is needed before it is asked. A foundational concept for understanding why Koreans often communicate indirectly.",
+    detail: "The subtle ability to gauge the mood and feelings of others without being told. Considered an essential social skill — someone with good 눈치 understands what is needed before it is asked. A foundational concept for understanding why Koreans often communicate indirectly.",
+    color: '#C62828',
   },
   {
     word: '빨리빨리',
     romanized: 'Ppalli-ppalli',
     meaning: 'Hurry, hurry',
-    detail:
-      "Korea's defining tempo — a cultural expectation of speed in everything from service to construction to conversation. Born from the urgency of rapid development, 빨리빨리 explains why Korean Wi-Fi is the fastest in the world, delivery arrives in an hour, and convenience stores never close.",
+    detail: "Korea's defining tempo — a cultural expectation of speed in everything from service to construction to conversation. Born from the urgency of rapid development, 빨리빨리 explains why Korean Wi-Fi is the fastest in the world, delivery arrives in an hour, and convenience stores never close.",
+    color: '#F9A825',
   },
   {
     word: '한',
     romanized: 'Han',
     meaning: 'Collective sorrow',
-    detail:
-      'A uniquely Korean emotional concept — the deep, simmering sorrow that comes from a history of suffering, loss, and suppressed grief. Han is not merely sadness; it is a collective wound held in the national soul. It is expressed in the wail of pansori music, in the weight of Gwangju, and in the stories of families separated by the DMZ.',
+    detail: "A uniquely Korean emotional concept — the deep, simmering sorrow that comes from a history of suffering, loss, and suppressed grief. Han is not merely sadness; it is a collective wound held in the national soul. It is expressed in the wail of pansori music, in the weight of Gwangju, and in the stories of families separated by the DMZ.",
+    color: '#1B5E20',
   },
   {
     word: '정',
     romanized: 'Jeong',
     meaning: 'Deep affection',
-    detail:
-      "The warm, almost inexplicable bond that forms between people who have shared time and experience together. 정 cannot be rushed or forced — it builds slowly through shared meals, hardship, and everyday moments. When a Korean shopkeeper insists on giving you extra, that is 정. When strangers help each other during a crisis, that is 정.",
+    detail: "The warm, almost inexplicable bond that forms between people who have shared time and experience together. 정 cannot be rushed or forced — it builds slowly through shared meals, hardship, and everyday moments. When a Korean shopkeeper insists on giving you extra, that is 정.",
+    color: '#1A237E',
   },
 ]
 
 export default function KoreaPage() {
+  const [activeIdx, setActiveIdx] = useState(0)
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observers = TIMELINE.map((_, i) => {
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveIdx(i) },
+        { threshold: 0.45 }
+      )
+      if (sectionRefs.current[i]) obs.observe(sectionRefs.current[i]!)
+      return obs
+    })
+    return () => observers.forEach(o => o.disconnect())
+  }, [])
+
   return (
     <div className="min-h-full bg-black text-white">
 
       {/* ── Hero ── */}
-      <div className="relative flex flex-col items-center justify-center py-24 px-6 text-center overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center py-28 px-6 text-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a0a0a] to-black" />
-        {/* 단청 top bar */}
-        <div className="absolute top-0 left-0 right-0 flex h-1">
-          {['#C62828', '#F9A825', '#1B5E20', '#1A237E', '#C62828'].map((c, i) => (
-            <div key={i} className="flex-1" style={{ backgroundColor: c }} />
-          ))}
+        <div className="absolute top-0 left-0 right-0 flex h-[3px]">
+          {DANCHEONG.map((c, i) => <div key={i} className="flex-1" style={{ backgroundColor: c }} />)}
         </div>
         <div className="relative z-10 flex flex-col items-center gap-4">
-          <p className="text-white/30 text-[10px] tracking-[0.6em] uppercase font-light">Lost American in Korea</p>
-          <h1
-            className="font-black tracking-[0.15em] uppercase leading-none"
-            style={{ fontSize: 'clamp(36px, 7vw, 88px)', textShadow: '0 0 60px rgba(255,255,255,0.12)' }}
-          >
+          <p className="text-white/25 text-[10px] tracking-[0.6em] uppercase font-light">Lost American in Korea</p>
+          <h1 className="font-black tracking-[0.15em] uppercase leading-none"
+            style={{ fontSize: 'clamp(36px, 7vw, 88px)', textShadow: '0 0 60px rgba(255,255,255,0.1)' }}>
             Understanding Korea
           </h1>
-          <p
-            className="font-light tracking-[0.5em]"
-            style={{ fontSize: 'clamp(16px, 2.5vw, 26px)', color: 'rgba(255,255,255,0.45)' }}
-          >
+          <p className="font-light tracking-[0.5em]"
+            style={{ fontSize: 'clamp(16px, 2.5vw, 26px)', color: 'rgba(255,255,255,0.4)' }}>
             오늘의 한국
           </p>
-          <div className="mt-4 max-w-2xl">
-            <p className="text-white/55 text-sm leading-relaxed tracking-wide">
-              Korea rebuilt itself from complete devastation in a single lifetime. To truly see this country,
-              you need to know what shaped it — the language, the war, the miracle, and the culture that
-              now moves the world.
-            </p>
-          </div>
+          <p className="text-white/45 text-sm leading-relaxed tracking-wide max-w-2xl mt-2">
+            Korea rebuilt itself from complete devastation in a single lifetime. To truly see this country,
+            you need to know what shaped it — the language, the war, the miracle, and the culture that now moves the world.
+          </p>
         </div>
       </div>
 
-      {/* ── Timeline ── */}
-      <div className="max-w-4xl mx-auto px-6 pb-24">
+      {/* ── Timeline + Sticky Sidebar ── */}
+      <div className="max-w-5xl mx-auto px-6 pb-24">
 
         <div className="flex items-center gap-4 mb-16">
-          <div className="flex-1 h-px bg-white/10" />
-          <p className="text-[10px] tracking-[0.5em] uppercase text-white/30 font-light">Timeline 역사</p>
-          <div className="flex-1 h-px bg-white/10" />
+          <div className="flex-1 h-px bg-white/8" />
+          <p className="text-[10px] tracking-[0.5em] uppercase text-white/25 font-light">Timeline 역사</p>
+          <div className="flex-1 h-px bg-white/8" />
         </div>
 
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-white/08 md:left-1/2" />
+        <div className="flex gap-10">
 
-          <div className="flex flex-col gap-12">
-            {TIMELINE.map((event, i) => {
-              const isLeft = i % 2 === 0
-              return (
-                <div
-                  key={i}
-                  className={`relative flex gap-8 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} flex-row`}
-                >
-                  {/* Year bubble — timeline dot */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-4 w-3 h-3 rounded-full border-2 z-10"
-                    style={{ borderColor: event.color, backgroundColor: '#000' }} />
-
-                  {/* Left/Right spacer on desktop */}
-                  <div className="hidden md:block flex-1" />
-
-                  {/* Card */}
-                  <div
-                    className="flex-1 pl-12 md:pl-0 group"
-                    style={{ maxWidth: '420px' }}
+          {/* Sticky left sidebar */}
+          <aside className="hidden md:block w-44 shrink-0">
+            <div className="sticky top-8">
+              <p className="text-white/20 text-[9px] tracking-[0.4em] uppercase mb-5 font-light">Era</p>
+              <div className="flex flex-col gap-3">
+                {TIMELINE.map((era, i) => (
+                  <button
+                    key={i}
+                    onClick={() => sectionRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                    className="text-left transition-all duration-300"
+                    style={{
+                      opacity: activeIdx === i ? 1 : 0.22,
+                      transform: activeIdx === i ? 'translateX(4px)' : 'none',
+                    }}
                   >
-                    <div
-                      className="rounded-xl p-5 border transition-all duration-300"
-                      style={{
-                        backgroundColor: `${event.color}0d`,
-                        borderColor: `${event.color}22`,
-                        backdropFilter: 'blur(12px)',
-                      }}
-                    >
-                      {/* Dancheong top line */}
-                      <div className="h-[2px] w-full rounded-full mb-4" style={{ backgroundColor: event.color + '88' }} />
+                    <p className="text-[9px] font-mono tracking-[0.2em]"
+                      style={{ color: activeIdx === i ? era.color : 'rgba(255,255,255,0.5)' }}>
+                      {era.year}
+                    </p>
+                    <p className="text-[10px] font-bold leading-tight text-white/80 mt-0.5">{era.titleKo}</p>
+                  </button>
+                ))}
+              </div>
 
-                      <div className="flex items-baseline gap-3 mb-1">
-                        <span className="text-[10px] tracking-[0.3em] uppercase font-mono" style={{ color: event.color }}>
-                          {event.year}
-                        </span>
-                        <span className="text-[10px] text-white/30 font-light">{event.yearKo}</span>
-                      </div>
-                      <h3 className="text-white font-bold text-base leading-tight mb-0.5">{event.title}</h3>
-                      <p className="text-[10px] tracking-[0.2em] uppercase mb-3 font-light" style={{ color: event.color, opacity: 0.7 }}>
-                        {event.titleKo}
-                      </p>
-                      <p className="text-white/60 text-[13px] leading-relaxed">{event.body}</p>
-                    </div>
-                  </div>
+              {/* Progress line */}
+              <div className="mt-6 relative h-[200px] w-[1px] bg-white/8 ml-0.5">
+                <div
+                  className="absolute top-0 left-0 w-full transition-all duration-500"
+                  style={{
+                    height: `${((activeIdx + 1) / TIMELINE.length) * 100}%`,
+                    backgroundColor: TIMELINE[activeIdx]?.color ?? '#fff',
+                    opacity: 0.6,
+                  }}
+                />
+              </div>
+            </div>
+          </aside>
 
-                  {/* Mobile: timeline dot */}
-                  <div className="md:hidden absolute left-6 top-5 -translate-x-1/2 w-2.5 h-2.5 rounded-full border-2 z-10"
-                    style={{ borderColor: event.color, backgroundColor: '#000' }} />
+          {/* Timeline cards */}
+          <div className="flex-1 flex flex-col gap-10">
+            {TIMELINE.map((event, i) => (
+              <div
+                key={i}
+                ref={el => { sectionRefs.current[i] = el }}
+                className="rounded-xl p-6 border transition-all duration-500"
+                style={{
+                  backgroundColor: `${event.color}0d`,
+                  borderColor: `${event.color}${activeIdx === i ? '44' : '18'}`,
+                  transform: activeIdx === i ? 'none' : 'none',
+                }}
+              >
+                {/* Dancheong top line */}
+                <div className="h-[2px] w-full rounded-full mb-5" style={{ backgroundColor: event.color + '77' }} />
+
+                <div className="flex items-baseline gap-3 mb-1.5">
+                  <span className="text-[10px] tracking-[0.3em] uppercase font-mono" style={{ color: event.color }}>
+                    {event.year}
+                  </span>
+                  <span className="text-[10px] text-white/28 font-light">{event.yearKo}</span>
                 </div>
-              )
-            })}
+                <h3 className="text-white font-bold text-lg leading-tight mb-0.5">{event.title}</h3>
+                <p className="text-[10px] tracking-[0.22em] uppercase mb-4 font-light"
+                  style={{ color: event.color, opacity: 0.65 }}>
+                  {event.titleKo}
+                </p>
+                <p className="text-white/55 text-[13px] leading-relaxed">{event.body}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* ── Korean Concepts ── */}
         <div className="mt-24">
           <div className="flex items-center gap-4 mb-12">
-            <div className="flex-1 h-px bg-white/10" />
-            <p className="text-[10px] tracking-[0.5em] uppercase text-white/30 font-light">Korean Concepts 개념</p>
-            <div className="flex-1 h-px bg-white/10" />
+            <div className="flex-1 h-px bg-white/8" />
+            <p className="text-[10px] tracking-[0.5em] uppercase text-white/25 font-light">Korean Concepts 개념</p>
+            <div className="flex-1 h-px bg-white/8" />
           </div>
 
-          <p className="text-white/40 text-sm leading-relaxed text-center max-w-xl mx-auto mb-10">
-            Four untranslatable Korean words that will help you understand everything you see, taste, and feel here.
-          </p>
+          <Reveal className="text-center max-w-xl mx-auto mb-10">
+            <p className="text-white/38 text-sm leading-relaxed">
+              Four untranslatable Korean words that will help you understand everything you see, taste, and feel here.
+            </p>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {CONCEPTS.map((c, i) => {
-              const colors = ['#C62828', '#F9A825', '#1B5E20', '#1A237E']
-              const color = colors[i % colors.length]
-              return (
-                <div
-                  key={i}
-                  className="rounded-xl p-5 border"
-                  style={{
-                    backgroundColor: `${color}0d`,
-                    borderColor: `${color}22`,
-                  }}
-                >
+            {CONCEPTS.map((c, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <div className="rounded-xl p-5 border"
+                  style={{ backgroundColor: `${c.color}0d`, borderColor: `${c.color}22` }}>
                   <div className="flex items-baseline gap-3 mb-2">
-                    <span className="text-2xl font-bold leading-none" style={{ color }}>{c.word}</span>
-                    <span className="text-white/35 text-[11px] tracking-widest">{c.romanized}</span>
+                    <span className="text-2xl font-bold leading-none" style={{ color: c.color }}>{c.word}</span>
+                    <span className="text-white/30 text-[11px] tracking-widest">{c.romanized}</span>
                   </div>
                   <p className="text-white font-semibold text-sm mb-2">{c.meaning}</p>
-                  <p className="text-white/55 text-[12px] leading-relaxed">{c.detail}</p>
+                  <p className="text-white/50 text-[12px] leading-relaxed">{c.detail}</p>
                 </div>
-              )
-            })}
+              </Reveal>
+            ))}
           </div>
         </div>
 
-        {/* ── Footer note ── */}
+        {/* ── Footer ── */}
         <div className="mt-20 text-center">
-          <p className="text-white/20 text-[11px] tracking-[0.3em] uppercase">
-            Now go get lost — 대한민국에 오신 것을 환영합니다
-          </p>
+          <Reveal>
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+              <Link href="/cities/seoul" className="px-6 py-2.5 bg-white text-black font-bold text-[11px] tracking-[0.3em] uppercase rounded-full hover:bg-white/88 transition-colors">
+                Explore Cities
+              </Link>
+              <Link href="/guide" className="px-6 py-2.5 border border-white/15 text-white/45 font-bold text-[11px] tracking-[0.3em] uppercase rounded-full hover:border-white/35 hover:text-white/65 transition-all">
+                Travel Guide
+              </Link>
+            </div>
+            <p className="text-white/18 text-[10px] tracking-[0.35em] uppercase">
+              대한민국에 오신 것을 환영합니다
+            </p>
+          </Reveal>
         </div>
       </div>
     </div>

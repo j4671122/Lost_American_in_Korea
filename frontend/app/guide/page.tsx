@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { cities } from '@/lib/cities'
 import { guides } from '@/lib/guides'
+import Reveal from '@/components/Reveal'
 
 export default function GuidePage() {
   const guideCities = guides
@@ -48,8 +49,8 @@ export default function GuidePage() {
       {/* City grid — 3 columns */}
       <section className="flex-1 grid grid-cols-3 gap-px bg-white/5 border-t border-white/5">
         {guideCities.map(({ city, guide }, i) => (
+          <Reveal key={city.id} delay={i * 55}>
           <Link
-            key={city.id}
             href={`/guide/${city.id}`}
             className="group relative overflow-hidden block"
             style={{ aspectRatio: '16/9' }}
@@ -110,6 +111,7 @@ export default function GuidePage() {
               </span>
             </div>
           </Link>
+          </Reveal>
         ))}
       </section>
 
