@@ -46,7 +46,7 @@ export default function LandmarkStrip({ landmarks, color }: Props) {
       {/* Frosted glass panel — 창호(窓戶) 격자 패턴 배경 */}
       <div
         style={{
-          height: open ? '260px' : '0px',
+          height: open ? '210px' : '0px',
           overflow: 'hidden',
           transition: 'height 0.4s cubic-bezier(0.4,0,0.2,1)',
           backgroundColor: 'rgba(0,0,0,0.52)',
