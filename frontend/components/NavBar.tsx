@@ -42,7 +42,7 @@ export default function NavBar() {
               key={city.id}
               href={`/cities/${city.id}`}
               className="w-[76px] md:w-auto md:flex-1 flex flex-col items-center border-r border-white/10 last:border-r-0 relative overflow-hidden transition-colors duration-200"
-              style={{ backgroundColor: isActive ? 'rgba(255,255,255,0.075)' : 'transparent' }}
+              style={{ backgroundColor: isActive ? city.color + '22' : 'transparent' }}
               onMouseEnter={() => setHoveredCity(city.id)}
               onMouseLeave={() => setHoveredCity(null)}
             >
@@ -52,7 +52,9 @@ export default function NavBar() {
                   className="absolute inset-0"
                   style={{
                     background: isHovered
-                      ? `linear-gradient(to top, ${city.color}33, ${city.color}11)`
+                      ? `linear-gradient(to top, ${city.color}44, ${city.color}18)`
+                      : isActive
+                      ? `linear-gradient(to top, ${city.color}28, ${city.color}0a)`
                       : 'linear-gradient(to top, rgba(255,255,255,0.07), rgba(255,255,255,0.015))',
                     transition: 'background 0.25s ease',
                   }}
@@ -64,7 +66,7 @@ export default function NavBar() {
                   className="absolute inset-0 w-full h-full object-cover"
                   style={{
                     transform: `scale(${isHovered ? 1.1 : 1})`,
-                    filter: isHovered ? 'brightness(1.15)' : 'grayscale(0.4) brightness(0.55)',
+                    filter: isHovered ? 'brightness(1.15)' : isActive ? 'brightness(0.85) saturate(1.2)' : 'grayscale(0.4) brightness(0.55)',
                     transition: 'transform 0.25s ease, filter 0.25s ease',
                     opacity: 0,
                   }}
@@ -76,7 +78,7 @@ export default function NavBar() {
               {/* 도시명 (영어 + 한국어) */}
               <div
                 className="h-16 md:h-[44px] flex flex-col items-center justify-center w-full px-2 transition-colors duration-200"
-                style={{ backgroundColor: isHovered ? city.color : 'transparent' }}
+                style={{ backgroundColor: isHovered ? city.color : isActive ? city.color + '18' : 'transparent' }}
               >
                 <span
                   className="text-[10px] md:text-[10px] font-bold tracking-wide leading-none text-center transition-colors duration-200"
@@ -92,7 +94,10 @@ export default function NavBar() {
                 </span>
               </div>
               {isActive && (
-                <span className="absolute bottom-0 left-3 right-3 h-px bg-white/70 md:top-0 md:bottom-auto" />
+                <span
+                  className="absolute bottom-0 left-0 right-0 h-[2px] md:top-0 md:bottom-auto"
+                  style={{ backgroundColor: city.color, boxShadow: `0 0 8px ${city.color}` }}
+                />
               )}
             </Link>
           )
