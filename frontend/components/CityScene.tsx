@@ -72,8 +72,8 @@ export default function CityScene({ cityId, cityName, cityNameKo, cityColor }: P
           className="font-light tracking-[0.5em] select-none"
           style={{
             fontSize: 'clamp(14px,2vw,22px)',
-            color: cityColor,
-            textShadow: `0 0 20px ${cityColor}66`,
+            color: '#000000',
+            textShadow: '0 0 16px rgba(255,255,255,1), 0 1px 6px rgba(255,255,255,0.9)',
           }}
         >
           {cityNameKo}

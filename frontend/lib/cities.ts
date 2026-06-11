@@ -21,7 +21,7 @@ export const cities: City[] = [
     name: 'Seoul',
     nameKo: '서울',
     color: '#E53935',
-    description: 'Capital since 1394. Ancient royal palaces, 24-hour street food, and neighborhoods where history and hyper-modern culture occupy the same block.',
+    description: 'Capital of Korea since 1394 — ancient Joseon palaces stand beside futuristic skyscrapers, and quiet temple gardens exist minutes from the world\'s most vibrant nightlife. The political, cultural, and economic heart of a nation that rebuilt itself from ashes in a single generation.',
     landmarks: [
       {
         id: 1,
@@ -58,7 +58,7 @@ export const cities: City[] = [
     name: 'Incheon',
     nameKo: '인천',
     color: '#2979FF',
-    description: "Korea's gateway city and birthplace of modernization — first Western hotel, first public park, first jajangmyeon. Most visitors fly through; few stay long enough to see it properly.",
+    description: "Korea's gateway city and birthplace of modernization — first Western-style hotel, first public park, and the original jajangmyeon. The ancient kingdom of Michuhol began here. Most visitors fly through; few stay long enough to discover where Korean modernity truly started.",
     landmarks: [
       {
         id: 1,
@@ -95,7 +95,7 @@ export const cities: City[] = [
     name: 'Gangneung',
     nameKo: '강릉',
     color: '#7CB342',
-    description: "Korea's coffee city — first-generation baristas settled along the beachfront and built a specialty coffee culture unlike anywhere else. Taebaek Mountains behind, East Sea in front.",
+    description: "A healing city with the majestic Taebaek Mountains at its back and the blue East Sea in front — Korea's undisputed 'City of Coffee,' where the country's first-generation specialty baristas settled the beachfront and created a cafe culture unlike anywhere else in the nation.",
     landmarks: [
       {
         id: 1,
@@ -132,7 +132,7 @@ export const cities: City[] = [
     name: 'Daejeon',
     nameKo: '대전',
     color: '#FBC02D',
-    description: "Korea's science capital and City of Kalguksu. KAIST and major research institutes cluster here, but the city's soul is in its noodles, red-clay forest trails, and Sungsimdang bread.",
+    description: "At the geographic heart of Korea — home to KAIST and the nation's largest cluster of research institutes. Yet Daejeon's soul lives in its barefoot red-clay forest trails, the legendary Sungsimdang bakery, and the hand-cut noodles that earned it the title 'City of Kalguksu.'",
     landmarks: [
       {
         id: 1,
@@ -169,7 +169,7 @@ export const cities: City[] = [
     name: 'Jeonju',
     nameKo: '전주',
     color: '#EC5AAE',
-    description: "UNESCO Creative City of Gastronomy — Korea's most recognized food city. Birthplace of bibimbap, home to Korea's largest hanok village, and source of the best makgeolli.",
+    description: "UNESCO Creative City of Gastronomy — Korea's most recognized food city. Birthplace of bibimbap, home to Korea's largest preserved hanok village (735 traditional houses), and the undisputed source of the nation's best makgeolli. Where the charm of Korea comes alive.",
     landmarks: [
       {
         id: 1,
@@ -206,7 +206,7 @@ export const cities: City[] = [
     name: 'Gwangju',
     nameKo: '광주',
     color: '#2E9E35',
-    description: "The 1980 pro-democracy uprising that changed Korean history happened here. City of light, art, and resistance — home to Asia's most significant contemporary art biennale.",
+    description: "The May 18th, 1980 pro-democracy uprising that changed Korean history happened here. City of light, art, and resistance — home to Asia's most significant contemporary art biennale and a food culture as passionate as its history.",
     landmarks: [
       {
         id: 1,
@@ -243,7 +243,7 @@ export const cities: City[] = [
     name: 'Daegu',
     nameKo: '대구',
     color: '#7E57C2',
-    description: "Korea's hottest summers. Red-brick colonial architecture, makchang grilled over charcoal, a street for a legendary singer, and a walking trail through 120 years of modern history.",
+    description: "Korea's hottest summers and most direct people. Red-brick colonial architecture, makchang grilled over charcoal, a street dedicated to legendary singer Kim Kwang-seok, and a bold Gyeongsang dialect that sounds nothing like Seoul Korean.",
     landmarks: [
       {
         id: 1,
@@ -280,7 +280,7 @@ export const cities: City[] = [
     name: 'Gyeongju',
     nameKo: '경주',
     color: '#F39C34',
-    description: '"Museum without walls" — capital of the Silla Kingdom for nearly 1,000 years. Royal burial mounds, UNESCO temples, and ancient observatories exist alongside everyday life.',
+    description: '"Museum without walls" — capital of the Silla Kingdom for nearly 1,000 years. Royal burial mounds, UNESCO temples, and ancient observatories exist seamlessly alongside modern daily life. A living archaeological landscape with no parallel in Korea.',
     landmarks: [
       {
         id: 1,
@@ -317,7 +317,7 @@ export const cities: City[] = [
     name: 'Busan',
     nameKo: '부산',
     color: '#2563EB',
-    description: "Korea's second city — born from wartime resilience. Mountains behind, beaches in front, fish markets at 5am. The freshest seafood in the country and a dialect that sounds like another language.",
+    description: "Korea's second city and largest port, born of wartime resilience. Mountains behind, beaches in front, Jagalchi fish market at 5am. The freshest seafood in the country and a port-city dialect so distinct that other Koreans sometimes need subtitles.",
     landmarks: [
       {
         id: 1,
@@ -354,7 +354,7 @@ export const cities: City[] = [
     name: 'Yeosu',
     nameKo: '여수',
     color: '#4FC3C7',
-    description: "A city where sea and light converge. 365 islands, Admiral Yi Sun-sin's naval legacy, and a night sea so beautiful it inspired one of Korea's most beloved songs.",
+    description: "A romantic city where the blue South Sea and harbor lights converge — 365 islands, Admiral Yi Sun-sin's naval legacy, and a night sea so beautiful that Busker Busker wrote Korea's most-played love song about it.",
     landmarks: [
       {
         id: 1,
@@ -391,7 +391,7 @@ export const cities: City[] = [
     name: 'Jeju',
     nameKo: '제주',
     color: '#F4B400',
-    description: 'UNESCO triple crown island. Volcanic peak, lava tubes, diving haenyeo women, and tangerine orchards. The Jeju dialect is classified by UNESCO as a critically endangered language.',
+    description: 'UNESCO triple crown island — Biosphere Reserve, World Natural Heritage, and Global Geopark. Volcanic peak, lava tubes, diving haenyeo women, and tangerine orchards. The Jeju language, isolated on this island for centuries, is classified by UNESCO as critically endangered.',
     landmarks: [
       {
         id: 1,
@@ -428,7 +428,7 @@ export const cities: City[] = [
     name: 'Dokdo',
     nameKo: '독도',
     color: '#3F51B5',
-    description: "Korea's easternmost territory — two volcanic islets in the East Sea. Korea administers Dokdo based on clear historical, geographical, and international legal grounds. 독도는 대한민국의 영토이다.",
+    description: "Korea's easternmost territory — two volcanic islets in the East Sea. For Koreans, Dokdo is not just a remote island — it is a symbol of national sovereignty, historical identity, and the enduring memory of Japanese colonial rule. 독도는 대한민국의 영토이다.",
     landmarks: [
       {
         id: 1,

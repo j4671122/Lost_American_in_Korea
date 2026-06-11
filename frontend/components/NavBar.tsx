@@ -87,7 +87,7 @@ export default function NavBar() {
                 </span>
                 <span
                   className="text-[9px] leading-none mt-0.5 transition-colors duration-200"
-                  style={{ color: isActive ? 'rgba(255,255,255,0.65)' : 'rgba(255,255,255,0.22)' }}
+                  style={{ color: isActive ? 'rgba(0,0,0,0.75)' : 'rgba(255,255,255,0.22)' }}
                 >
                   {city.nameKo}
                 </span>
@@ -96,6 +96,21 @@ export default function NavBar() {
           )
         })}
       </div>
+
+      {/* ── 한국 역사 링크 ── */}
+      <Link
+        href="/korea"
+        className="flex flex-col items-center justify-center w-16 shrink-0 border-l border-white/10 gap-1.5 hover:bg-white/5 transition-colors duration-200"
+      >
+        <span className="text-[8px] tracking-[0.25em] font-bold text-white/40 hover:text-white/70 transition-colors duration-200 uppercase">
+          Korea
+        </span>
+        <div className="flex gap-[3px]">
+          {['#C62828', '#F9A825', '#1B5E20', '#1A237E'].map((c, i) => (
+            <span key={i} className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: c, opacity: 0.6 }} />
+          ))}
+        </div>
+      </Link>
 
       {/* ── 여행가이드 링크 ── */}
       <Link

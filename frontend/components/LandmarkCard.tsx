@@ -117,7 +117,7 @@ export default function LandmarkCard({ landmark, color, index }: Props) {
         </p>
         <p
           className="text-[9px] font-light leading-none mt-0.5 truncate"
-          style={{ color, opacity: 0.85 }}
+          style={{ color: '#000000', opacity: 0.85, textShadow: '0 1px 4px rgba(255,255,255,0.7)' }}
         >
           {landmark.nameKo}
         </p>
