@@ -77,6 +77,34 @@ function TaegeukFlag({ size = 320, glowing = false }: { size?: number; glowing?:
   )
 }
 
+/* ── Flag display: real photo if available, SVG fallback ── */
+function FlagDisplay({ size, glowing = false }: { size: number; glowing?: boolean }) {
+  const [imgFailed, setImgFailed] = useState(false)
+  const h = Math.round(size * 2 / 3)
+
+  if (!imgFailed) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/cities/dokdo/flag.png"
+        alt="대한민국 태극기"
+        style={{
+          width: size,
+          height: h,
+          objectFit: 'contain',
+          filter: glowing
+            ? 'drop-shadow(0 0 24px rgba(205,46,58,0.45)) drop-shadow(0 0 48px rgba(0,52,120,0.35))'
+            : 'none',
+          transition: 'filter 2s ease-in-out',
+        }}
+        onError={() => setImgFailed(true)}
+      />
+    )
+  }
+
+  return <TaegeukFlag size={size} glowing={glowing} />
+}
+
 /* ── Main Page ───────────────────────────────── */
 export default function DokdoPage() {
   const [glowing, setGlowing] = useState(false)
@@ -124,7 +152,7 @@ export default function DokdoPage() {
             transform: entered ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.95)',
             transition: 'opacity 1.4s ease 0.3s, transform 1.4s ease 0.3s',
           }}>
-            <TaegeukFlag size={320} glowing={glowing} />
+            <FlagDisplay size={320} glowing={glowing} />
           </div>
 
           {/* 독도 title */}
@@ -332,7 +360,7 @@ export default function DokdoPage() {
         <Reveal className="relative z-10 flex flex-col items-center gap-8 md:gap-10">
           <div className="w-16 h-[2px]" style={{ backgroundColor: '#CD2E3A', opacity: 0.7 }} />
 
-          <TaegeukFlag size={160} glowing />
+          <FlagDisplay size={160} glowing />
 
           <div className="flex flex-col items-center gap-3">
             <p
