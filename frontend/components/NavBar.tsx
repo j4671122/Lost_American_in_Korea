@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { cities } from '@/lib/cities'
+import { cities, getCityBackgroundImage } from '@/lib/cities'
 import { guides } from '@/lib/guides'
 
 export default function NavBar() {
@@ -59,7 +59,7 @@ export default function NavBar() {
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/cities/${city.id}/background.jpg`}
+                  src={getCityBackgroundImage(city.id)}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
                   style={{
