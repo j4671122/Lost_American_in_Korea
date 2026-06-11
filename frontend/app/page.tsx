@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Reveal from '@/components/Reveal'
-import { cities } from '@/lib/cities'
+import { cities, getCityBackgroundImage } from '@/lib/cities'
 
 const DANCHEONG = ['#C62828', '#F9A825', '#1B5E20', '#1A237E', '#C62828']
 
@@ -245,9 +245,9 @@ export default function Home() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/cities/${city.id}/background.jpg`}
+                  src={getCityBackgroundImage(city.id)}
                   alt={city.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   style={{ opacity: 0, transition: 'opacity 0.5s ease, transform 0.7s ease' }}
                   onLoad={e => { (e.target as HTMLImageElement).style.opacity = '1' }}
                   onError={e => { (e.target as HTMLImageElement).style.display = 'none' }}
@@ -288,7 +288,7 @@ export default function Home() {
             Your Korea Starts Here
           </h2>
           <p className="text-white/35 text-sm leading-relaxed max-w-sm">
-            Pick a city. Read the guide. Or let yourself get lost — that's the whole point.
+            Pick a city. Read the guide. Or let yourself get lost — that&apos;s the whole point.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link href="/cities/seoul" className="px-8 py-3 bg-white text-black font-bold text-[11px] tracking-[0.3em] uppercase rounded-full hover:bg-white/88 transition-colors">

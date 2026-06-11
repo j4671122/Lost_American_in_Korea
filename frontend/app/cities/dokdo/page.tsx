@@ -218,6 +218,16 @@ export default function DokdoPage() {
         </div>
       </section>
 
+      {/* ── DOKDO PHOTO ── */}
+      <section className="relative overflow-hidden" style={{ borderTop: '1px solid rgba(205,46,58,0.15)' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/cities/dokdo/background.jpg"
+          alt="Dokdo islands"
+          className="block w-full h-auto"
+        />
+      </section>
+
       {/* ── ENGLISH DECLARATION ── */}
       <section className="relative py-20 md:py-28 px-6 md:px-12" style={{ borderTop: '1px solid rgba(205,46,58,0.15)' }}>
         <div className="max-w-3xl mx-auto">

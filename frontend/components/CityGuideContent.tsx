@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import type { City } from '@/lib/cities'
+import { getCityBackgroundImage, type City } from '@/lib/cities'
 import type { CityGuide } from '@/lib/guides'
 
 type Props = {
@@ -27,10 +27,10 @@ export default function CityGuideContent({ city, guide }: Props) {
       <section className="relative h-[65vh] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`/cities/${city.id}/background.jpg`}
+          src={getCityBackgroundImage(city.id)}
           alt={city.name}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ transform: 'scale(1.05)', transformOrigin: 'center' }}
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{ backgroundColor: city.color + '18' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black" />
         <div

@@ -15,6 +15,10 @@ export type City = {
   landmarks: Landmark[]
 }
 
+export function getCityBackgroundImage(cityId: string) {
+  return `/cities/${cityId}/background.${cityId === 'yeosu' ? 'png' : 'jpg'}`
+}
+
 export const cities: City[] = [
   {
     id: 'seoul',

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { getCityBackgroundImage } from '@/lib/cities'
 
 type Props = {
   cityId: string
@@ -29,9 +30,9 @@ export default function CityScene({ cityId, cityName, cityNameKo, cityColor }: P
     <>
       {/* 배경 사진 */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/cities/${cityId}/background.jpg')`,
+          backgroundImage: `url('${getCityBackgroundImage(cityId)}')`,
           backgroundColor: cityColor + '22',
         }}
       />

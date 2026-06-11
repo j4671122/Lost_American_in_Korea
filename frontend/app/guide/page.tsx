@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { cities } from '@/lib/cities'
+import { cities, getCityBackgroundImage } from '@/lib/cities'
 import { guides } from '@/lib/guides'
 import Reveal from '@/components/Reveal'
 
@@ -58,9 +58,9 @@ export default function GuidePage() {
             {/* Background photo */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`/cities/${city.id}/background.jpg`}
+              src={getCityBackgroundImage(city.id)}
               alt={city.name}
-              className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+              className="absolute inset-0 w-full h-full object-contain scale-100 group-hover:scale-[1.02] transition-transform duration-700 ease-out"
             />
 
             {/* Overlays */}
