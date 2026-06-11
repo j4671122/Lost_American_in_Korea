@@ -28,7 +28,7 @@ export default function LandmarkCard({ landmark, color, index }: Props) {
         transition: 'opacity 0.55s ease, transform 0.55s ease',
       }}
     >
-      {/* Photo — zooms in on hover */}
+      {/* 사진 — 호버 시 줌 */}
       <div className="absolute inset-0 scale-100 group-hover:scale-105 transition-transform duration-700 ease-out">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -41,45 +41,42 @@ export default function LandmarkCard({ landmark, color, index }: Props) {
         />
       </div>
 
-      {/* Dark base layer */}
       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-400" />
 
-      {/* Gradient — bottom heavy, deepens on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent
-                      opacity-80 group-hover:opacity-100 transition-opacity duration-400" />
-
-      {/* Top accent line with glow */}
+      {/* 상단 컬러 라인 */}
       <div
         className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-300 group-hover:h-[3px]"
         style={{ backgroundColor: color, boxShadow: `0 0 10px ${color}aa` }}
       />
 
-      {/* Number — top left */}
+      {/* 번호 */}
       <span
-        className="absolute top-3 left-3 text-[11px] font-black tracking-widest select-none
-                   opacity-40 group-hover:opacity-90 transition-opacity duration-300"
+        className="absolute top-3 left-3 text-[10px] font-black tracking-widest select-none opacity-40 group-hover:opacity-90 transition-opacity duration-300"
         style={{ color }}
       >
         {num}
       </span>
 
-      {/* Right divider */}
+      {/* 우측 구분선 */}
       <div className="absolute top-4 right-0 bottom-4 w-px bg-white/10 group-hover:bg-white/0 transition-colors duration-300" />
 
-      {/* Text — slides up on hover */}
-      <div
-        className="absolute bottom-0 left-0 right-0 px-4 pb-4 pt-8
-                   translate-y-1 group-hover:translate-y-0 transition-transform duration-350"
-      >
+      {/* 텍스트 — 호버 시 슬라이드업 */}
+      <div className="absolute bottom-0 left-0 right-0 px-3 pb-3 pt-6 translate-y-1 group-hover:translate-y-0 transition-transform duration-350">
         <p
-          className="text-white font-bold text-[11px] tracking-[0.18em] uppercase leading-tight"
+          className="text-white font-bold text-[10px] tracking-[0.18em] uppercase leading-tight"
           style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}
         >
           {landmark.name}
         </p>
         <p
-          className="text-white/0 group-hover:text-white/65 text-[10px] mt-1.5 leading-snug
-                     transition-colors duration-400 line-clamp-2"
+          className="text-[10px] mt-0.5 leading-none font-light opacity-50 group-hover:opacity-70 transition-opacity duration-300"
+          style={{ color }}
+        >
+          {landmark.nameKo}
+        </p>
+        <p
+          className="text-white/0 group-hover:text-white/55 text-[9px] mt-1.5 leading-snug transition-colors duration-400 line-clamp-2"
           style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}
         >
           {landmark.description}

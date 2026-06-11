@@ -18,7 +18,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     <div className="flex flex-col h-full">
       {/* City scene */}
       <div className="flex-1 relative overflow-hidden">
-        <CityScene cityId={city.id} cityName={city.name} cityColor={city.color} />
+        <CityScene cityId={city.id} cityName={city.name} cityNameKo={city.nameKo} cityColor={city.color} />
         {/* City intro — overlaid bottom-right of scene */}
         <div className="absolute bottom-5 right-5 z-10">
           <CityIntroToggle city={city} />

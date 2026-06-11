@@ -5,6 +5,7 @@ import { useState } from 'react'
 type Props = {
   cityId: string
   cityName: string
+  cityNameKo: string
   cityColor: string
 }
 
@@ -18,17 +19,15 @@ function OptionalImg({ src, alt, className }: { src: string; alt: string; classN
       className={className}
       style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.4s ease' }}
       onLoad={() => setVisible(true)}
-      onError={(e) => {
-        ;(e.target as HTMLImageElement).style.display = 'none'
-      }}
+      onError={(e) => { ;(e.target as HTMLImageElement).style.display = 'none' }}
     />
   )
 }
 
-export default function CityScene({ cityId, cityName, cityColor }: Props) {
+export default function CityScene({ cityId, cityName, cityNameKo, cityColor }: Props) {
   return (
     <>
-      {/* Background photo — fallback to city color tint if image missing */}
+      {/* 배경 사진 */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -37,10 +36,10 @@ export default function CityScene({ cityId, cityName, cityColor }: Props) {
         }}
       />
 
-      {/* Dark gradient overlay for readability */}
+      {/* 그라디언트 오버레이 */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
 
-      {/* Left building */}
+      {/* 좌측 건물 */}
       <div className="absolute left-0 top-0 bottom-0 w-64 pointer-events-none">
         <OptionalImg
           src={`/cities/${cityId}/building-left.png`}
@@ -49,7 +48,7 @@ export default function CityScene({ cityId, cityName, cityColor }: Props) {
         />
       </div>
 
-      {/* Right building */}
+      {/* 우측 건물 */}
       <div className="absolute right-0 top-0 bottom-0 w-64 pointer-events-none">
         <OptionalImg
           src={`/cities/${cityId}/building-right.png`}
@@ -58,14 +57,27 @@ export default function CityScene({ cityId, cityName, cityColor }: Props) {
         />
       </div>
 
-      {/* City name */}
-      <div className="absolute top-6 left-0 right-0 flex justify-center pointer-events-none">
+      {/* 도시 이름 — 한/영 이중 표기 */}
+      <div className="absolute top-6 left-0 right-0 flex flex-col items-center pointer-events-none gap-1">
         <h1
-          className="text-6xl font-black tracking-[0.2em] text-white select-none"
-          style={{ textShadow: `0 0 40px ${cityColor}88, 0 2px 8px rgba(0,0,0,0.8)` }}
+          className="font-black tracking-[0.2em] text-white select-none leading-none"
+          style={{
+            fontSize: 'clamp(36px,6vw,72px)',
+            textShadow: `0 0 40px ${cityColor}88, 0 2px 8px rgba(0,0,0,0.8)`,
+          }}
         >
           {cityName.toUpperCase()}
         </h1>
+        <p
+          className="font-light tracking-[0.5em] select-none"
+          style={{
+            fontSize: 'clamp(14px,2vw,22px)',
+            color: cityColor,
+            textShadow: `0 0 20px ${cityColor}66`,
+          }}
+        >
+          {cityNameKo}
+        </p>
       </div>
     </>
   )
