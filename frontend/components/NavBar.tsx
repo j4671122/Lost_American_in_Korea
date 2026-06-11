@@ -103,7 +103,7 @@ export default function NavBar() {
         className="flex flex-col items-center justify-center w-16 shrink-0 border-l border-white/10 gap-1.5 hover:bg-white/5 transition-colors duration-200"
       >
         <span className="text-[8px] tracking-[0.25em] font-bold text-white/40 hover:text-white/70 transition-colors duration-200 uppercase">
-          여행가이드
+          Guide
         </span>
         <div className="flex gap-[3px]">
           {guides.slice(0, 4).map((g) => {
@@ -152,13 +152,10 @@ export default function NavBar() {
             </p>
             <div className="flex-1 h-px bg-white/15" />
           </div>
-          <p className="text-white/20 text-[10px] tracking-[0.4em] uppercase mt-2">
-            길을 잃어도 괜찮아
-          </p>
         </div>
 
         <p className="absolute bottom-10 text-white/18 text-[10px] tracking-[0.3em] uppercase">
-          아무 곳이나 클릭해서 닫기
+          Click anywhere to close
         </p>
       </div>
     )}

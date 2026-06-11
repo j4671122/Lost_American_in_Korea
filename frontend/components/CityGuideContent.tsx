@@ -12,10 +12,10 @@ type Props = {
 
 export default function CityGuideContent({ city, guide }: Props) {
   const tabs = [
-    '소개',
-    ...(guide.landmarks.length > 0 ? ['명소'] : []),
-    ...(guide.food.length > 0 ? ['음식'] : []),
-    ...(guide.cafes.length > 0 ? ['카페'] : []),
+    'Overview',
+    ...(guide.landmarks.length > 0 ? ['Landmarks'] : []),
+    ...(guide.food.length > 0 ? ['Food'] : []),
+    ...(guide.cafes.length > 0 ? ['Cafes'] : []),
     ...(guide.extra ? guide.extra.map((e) => e.title) : []),
   ]
 
@@ -23,7 +23,7 @@ export default function CityGuideContent({ city, guide }: Props) {
 
   return (
     <>
-      {/* ── 히어로 ─────────────────────────────────────── */}
+      {/* ── Hero ──────────────────────────────────────── */}
       <section className="relative h-[65vh] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -42,7 +42,7 @@ export default function CityGuideContent({ city, guide }: Props) {
           href="/guide"
           className="absolute top-6 left-8 text-white/40 hover:text-white text-[11px] tracking-[0.35em] uppercase transition-colors duration-200"
         >
-          ← 여행기록
+          ← Guide
         </Link>
 
         <div className="absolute bottom-0 left-0 right-0 px-10 pb-12">
@@ -50,7 +50,7 @@ export default function CityGuideContent({ city, guide }: Props) {
             className="text-[10px] tracking-[0.6em] uppercase mb-2"
             style={{ color: city.color }}
           >
-            한국 여행 기록
+            Korea Travel Guide
           </p>
           <h1
             className="font-black tracking-[0.12em] uppercase leading-none text-white"
@@ -73,7 +73,7 @@ export default function CityGuideContent({ city, guide }: Props) {
         </div>
       </section>
 
-      {/* ── 스티키 탭 ─────────────────────────────────── */}
+      {/* ── Sticky tabs ───────────────────────────────── */}
       <nav
         className="sticky top-0 z-20 flex items-stretch border-b border-white/10 overflow-x-auto"
         style={{ backgroundColor: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(20px)' }}
@@ -99,25 +99,25 @@ export default function CityGuideContent({ city, guide }: Props) {
         })}
       </nav>
 
-      {/* ── 컨텐츠 ────────────────────────────────────── */}
+      {/* ── Content ───────────────────────────────────── */}
       <div
         key={activeTab}
         className="px-10 py-14 max-w-5xl mx-auto min-h-[50vh]"
         style={{ animation: 'fadeIn 0.3s ease' }}
       >
 
-        {/* 소개 */}
-        {activeTab === '소개' && (
+        {/* Overview */}
+        {activeTab === 'Overview' && (
           <div className="max-w-2xl">
-            <SectionLabel color={city.color}>소개 · Overview</SectionLabel>
+            <SectionLabel color={city.color}>Overview</SectionLabel>
             <p className="text-white/75 text-lg leading-[2] font-light">{guide.overview}</p>
           </div>
         )}
 
-        {/* 명소 */}
-        {activeTab === '명소' && (
+        {/* Landmarks */}
+        {activeTab === 'Landmarks' && (
           <div className="space-y-10">
-            <SectionLabel color={city.color}>명소 · Landmarks</SectionLabel>
+            <SectionLabel color={city.color}>Landmarks &amp; Attractions</SectionLabel>
             {guide.landmarks.map((lm, i) => (
               <div
                 key={lm.id}
@@ -152,10 +152,10 @@ export default function CityGuideContent({ city, guide }: Props) {
           </div>
         )}
 
-        {/* 음식 */}
-        {activeTab === '음식' && (
+        {/* Food */}
+        {activeTab === 'Food' && (
           <div className="space-y-14">
-            <SectionLabel color={city.color}>음식 · Food</SectionLabel>
+            <SectionLabel color={city.color}>Food &amp; Cuisine</SectionLabel>
             {guide.food.map((food, i) => (
               <div
                 key={food.id}
@@ -177,7 +177,7 @@ export default function CityGuideContent({ city, guide }: Props) {
                       className="text-[9px] tracking-[0.5em] uppercase mb-3"
                       style={{ color: city.color + '99' }}
                     >
-                      추천 식당
+                      Recommended
                     </p>
                     <ul className="space-y-2">
                       {food.restaurants.map((r, ri) => (
@@ -194,10 +194,10 @@ export default function CityGuideContent({ city, guide }: Props) {
           </div>
         )}
 
-        {/* 카페 */}
-        {activeTab === '카페' && (
+        {/* Cafes */}
+        {activeTab === 'Cafes' && (
           <div>
-            <SectionLabel color={city.color}>카페 · Cafes</SectionLabel>
+            <SectionLabel color={city.color}>Cafes &amp; Coffee</SectionLabel>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {guide.cafes.map((cafe, i) => (
                 <div
@@ -219,7 +219,7 @@ export default function CityGuideContent({ city, guide }: Props) {
           </div>
         )}
 
-        {/* 추가 섹션 (독도 등) */}
+        {/* Extra sections */}
         {guide.extra?.map((extra) =>
           activeTab === extra.title ? (
             <div key={extra.title} className="max-w-2xl">
@@ -247,13 +247,13 @@ export default function CityGuideContent({ city, guide }: Props) {
         )}
       </div>
 
-      {/* 푸터 */}
+      {/* Footer */}
       <footer className="border-t border-white/5 py-10 text-center">
         <Link
           href="/guide"
           className="text-white/20 hover:text-white/50 text-[10px] tracking-[0.45em] uppercase transition-colors duration-200"
         >
-          ← 모든 도시 보기
+          ← All Destinations
         </Link>
       </footer>
     </>
